@@ -6,6 +6,19 @@
 <!-- HEADER -->
 <jsp:include page="../common/header.jsp"/>
 
+<style>
+    .nav-pills .nav-link {
+        border-radius: 0;
+        color: #a0a0a0;
+    }
+
+    .nav-pills .nav-link.active {
+        color: black;
+        border-left: 2px solid;
+        background: none;
+    }
+</style>
+
 <!-- MAIN CONTENT OF THE PAGE -->
 <div class="container mt-4 card card-body">
 

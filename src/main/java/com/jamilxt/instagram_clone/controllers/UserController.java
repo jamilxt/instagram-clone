@@ -1,9 +1,10 @@
 package com.jamilxt.instagram_clone.controllers;
 
+import com.jamilxt.instagram_clone.dtos.UserDto;
 import com.jamilxt.instagram_clone.request.User;
 import com.jamilxt.instagram_clone.service.AuthorityService;
 import com.jamilxt.instagram_clone.service.UserService;
-import com.jamilxt.instagram_clone.dtos.UserDto;
+import com.jamilxt.instagram_clone.util.Constants;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletContext;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -22,6 +29,8 @@ public class UserController {
     UserService userService;
     @Autowired
     AuthorityService authorityService;
+    @Autowired
+    ServletContext context;
 
     @GetMapping("/user/add")
     public String getAddUser(Model model) {
@@ -39,7 +48,19 @@ public class UserController {
     }
 
     @PostMapping("/user/add")
-    public String addUser(Model model, @ModelAttribute("user") User user, @RequestParam("dob_f") String dob_f) {
+    public String addUser(Model model, @ModelAttribute("user") User user, @RequestParam("dob_f") String dob_f, @RequestParam("file") MultipartFile file) {
+
+        if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+                String absoluteFilePath = context.getRealPath(Constants.UPLOADED_FOLDER);
+                Path path = Paths.get(absoluteFilePath + file.getOriginalFilename());
+                Files.write(path, bytes);
+                user.setPropic(file.getOriginalFilename());
+            } catch (IOException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
 
         var userDto = new UserDto();
         userDto.setDob(LocalDate.parse(dob_f));

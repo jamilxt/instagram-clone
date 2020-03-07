@@ -15,7 +15,8 @@
     </h3>
 
     <form:form action="${pageContext.request.contextPath }/user/add"
-               modelAttribute="user">
+               modelAttribute="user"
+               enctype="multipart/form-data">
         <div class="form-group">
             <label>Username</label> <span id="Result" align="center"></span>
             <form:input path="username" class="form-control" id="username" required="required"></form:input>
@@ -59,13 +60,16 @@
 
         <div class="form-group">
             <label>Date of Birth</label>
-                <%--            html default date type input--%>
-                <%--            <input class="form-control" type="date" required="required" name="dob_f"/>--%>
             <input class="form-control" type="text" id="datepicker" required="required" name="dob_f"/>
         </div>
 
+        <div class="form-group">
+            <label>Profile Picture</label> <br>
+            <input type="file" name="file"/>
+        </div>
+
         <input type="submit" name="submit" value="Add"
-               class="btn btn-primary btn-lg btn-block" id="btnSubmit" disabled="true">
+               class="btn btn-primary btn-lg btn-block mt-5" id="btnSubmit" disabled="true">
     </form:form>
 
 </div>

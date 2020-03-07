@@ -33,7 +33,7 @@ public class User implements Serializable {
     @Column(name = "is_active")
     private Boolean active = true;
     @Column(name = "propic")
-    private String propic;
+    private String propic = "default.png";
 
     public long getId() {
         return id;

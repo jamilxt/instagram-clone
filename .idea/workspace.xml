@@ -6,7 +6,62 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09b0406b-a470-47ba-86d3-3f1224bf53ae" name="Default Changelist" comment="" />
+    <list default="true" id="09b0406b-a470-47ba-86d3-3f1224bf53ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/instagram_clone_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/instagram_clone_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instagram-clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/instagram-clone.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/ServletConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/ServletConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/dtos/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/dtos/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/request/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/request/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/show-all.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/show-all.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/instagram-clone.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/AppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/AppInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/ServletConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/ServletConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/RootController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/dtos/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/dtos/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/request/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/request/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/util/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/META-INF/instagram-clone.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/AppInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/AppInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/ServletConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/ServletConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/RootController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/dtos/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/dtos/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/request/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/request/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/util/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/util/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/hibernate-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/hibernate-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/lib/commons-fileupload-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/resources/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/accounts/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/accounts/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/user/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/user/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/user/show-all.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/user/show-all.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +74,9 @@
         <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -35,6 +93,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1YkmrBYgKLDmGCRrTK8N1anc2eK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -42,17 +103,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css" />
     </key>
   </component>
   <component name="RunManager">
@@ -164,7 +231,8 @@
       <option name="presentableId" value="Default" />
       <updated>1583495162281</updated>
       <workItem from="1583495163510" duration="7591000" />
-      <workItem from="1583508948000" duration="2980000" />
+      <workItem from="1583508948000" duration="4109000" />
+      <workItem from="1583563188502" duration="13577000" />
     </task>
     <servers />
   </component>
@@ -172,74 +240,98 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="252" y="1028" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583497428131">
+    <state x="252" y="1028" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583578924392">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state x="252" y="1028" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583497428131" />
+    <state x="252" y="1028" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578924392" />
     <state x="258" y="107" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583495196062" />
     <state x="533" y="198" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583495575177">
       <screen x="55" y="0" width="1545" height="900" />
     </state>
     <state x="533" y="198" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583495575177" />
-    <state width="1252" height="349" key="GridCell.Tab.0.bottom" timestamp="1583511391432">
+    <state x="745" y="1110" key="#xdebugger.evaluate" timestamp="1583568576384">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.0.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391432" />
+    <state x="745" y="1110" key="#xdebugger.evaluate/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583568576384" />
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom" timestamp="1583579755095">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583579755095" />
     <state width="1067" height="287" key="GridCell.Tab.0.bottom/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.0.center" timestamp="1583511391432">
+    <state width="1819" height="278" key="GridCell.Tab.0.center" timestamp="1583579755095">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.0.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391432" />
+    <state width="1819" height="278" key="GridCell.Tab.0.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583579755095" />
     <state width="1067" height="287" key="GridCell.Tab.0.center/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.0.left" timestamp="1583511391432">
+    <state width="1819" height="278" key="GridCell.Tab.0.left" timestamp="1583579755095">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.0.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391432" />
+    <state width="1819" height="278" key="GridCell.Tab.0.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583579755095" />
     <state width="1067" height="287" key="GridCell.Tab.0.left/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.0.right" timestamp="1583511391432">
+    <state width="1819" height="278" key="GridCell.Tab.0.right" timestamp="1583579755095">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.0.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391432" />
+    <state width="1819" height="278" key="GridCell.Tab.0.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583579755095" />
     <state width="1067" height="287" key="GridCell.Tab.0.right/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.1.bottom" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.1.bottom" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.1.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.1.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.1.bottom/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.1.center" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.1.center" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.1.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.1.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.1.center/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.1.left" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.1.left" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.1.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.1.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.1.left/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.1.right" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.1.right" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.1.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.1.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.1.right/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751004" />
-    <state width="1252" height="349" key="GridCell.Tab.2.bottom" timestamp="1583511391332">
+    <state width="1252" height="349" key="GridCell.Tab.2.bottom" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.2.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391332" />
+    <state width="1252" height="349" key="GridCell.Tab.2.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.2.bottom/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751005" />
-    <state width="1252" height="349" key="GridCell.Tab.2.center" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.2.center" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.2.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.2.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.2.center/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751005" />
-    <state width="1252" height="349" key="GridCell.Tab.2.left" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.2.left" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.2.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.2.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.2.left/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751005" />
-    <state width="1252" height="349" key="GridCell.Tab.2.right" timestamp="1583511391331">
+    <state width="1252" height="349" key="GridCell.Tab.2.right" timestamp="1583578947775">
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
-    <state width="1252" height="349" key="GridCell.Tab.2.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583511391331" />
+    <state width="1252" height="349" key="GridCell.Tab.2.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583578947775" />
     <state width="1067" height="287" key="GridCell.Tab.2.right/0.900.1920.1080/55.0.1545.900@55.0.1545.900" timestamp="1583502751005" />
+    <state width="1252" height="349" key="GridCell.Tab.3.bottom" timestamp="1583569489268">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state width="1252" height="349" key="GridCell.Tab.3.bottom/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583569489268" />
+    <state width="1252" height="349" key="GridCell.Tab.3.center" timestamp="1583569489267">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state width="1252" height="349" key="GridCell.Tab.3.center/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583569489267" />
+    <state width="1252" height="349" key="GridCell.Tab.3.left" timestamp="1583569489267">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state width="1252" height="349" key="GridCell.Tab.3.left/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583569489267" />
+    <state width="1252" height="349" key="GridCell.Tab.3.right" timestamp="1583569489267">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state width="1252" height="349" key="GridCell.Tab.3.right/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583569489267" />
+    <state x="470" y="1030" width="1024" height="845" key="SettingsEditor" timestamp="1583579265729">
+      <screen x="0" y="900" width="1920" height="1080" />
+    </state>
+    <state x="470" y="1030" width="1024" height="845" key="SettingsEditor/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583579265729" />
   </component>
 </project>

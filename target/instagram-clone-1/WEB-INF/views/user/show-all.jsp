@@ -18,6 +18,7 @@
         <thead class="thead-light">
         <tr>
             <th>ID</th>
+            <th>Profile Picture</th>
             <th>Username</th>
             <th>Role</th>
             <th>Action</th>
@@ -27,6 +28,10 @@
         <c:forEach items="${ users }" var="user">
             <tr>
                 <th>${ user.id } </th>
+                <th>
+                    <img class="img-responsive" width="60px"
+                         src="${pageContext.request.contextPath }/images/${user.propic}">
+                </th>
                 <th>${ user.username }</th>
                 <th>
                     <c:forEach items="${user.authorities}" var="authority">

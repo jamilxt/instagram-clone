@@ -12,13 +12,14 @@ public class AppInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) {
 
+        System.setProperty("java.runtime.version", "11");
+
         // Load Spring web application configuration
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(RootConfig.class);
 
         // activate dev/prod profile
-        ac.getEnvironment().setActiveProfiles("dev");
-
+        ac.getEnvironment().setActiveProfiles("prod");
         ac.refresh();
 
         servletContext.addListener(new ContextLoaderListener(ac));

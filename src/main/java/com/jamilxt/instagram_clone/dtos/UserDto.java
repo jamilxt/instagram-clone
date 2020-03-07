@@ -13,7 +13,7 @@ public class UserDto implements Serializable {
     private String gender;
     private LocalDate dob;
     private Boolean active = true;
-    private String propic;
+    private String propic = "default.png";
 
     public String getUsername() {
         return username;

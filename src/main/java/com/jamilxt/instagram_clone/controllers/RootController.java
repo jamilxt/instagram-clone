@@ -4,6 +4,8 @@ import com.jamilxt.instagram_clone.model.Authority;
 import com.jamilxt.instagram_clone.model.User;
 import com.jamilxt.instagram_clone.repositories.UserRepository;
 import com.jamilxt.instagram_clone.service.AuthorityService;
+import com.jamilxt.instagram_clone.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,9 @@ public class RootController {
     private final AuthorityService authorityService;
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
+    UserService userService;
+
     public RootController(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityService authorityService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -38,6 +43,12 @@ public class RootController {
         return "index";
     }
 
+    @GetMapping("/explore")
+    public String explorePage(Model model) {
+        model.addAttribute("pageTitle", "Explore");
+        return "explore";
+    }
+
     @GetMapping("/accounts/login")
     public String login(Model model, @RequestParam(name = "error", required = false) String error) {
         generateRoles();
@@ -45,6 +56,13 @@ public class RootController {
         model.addAttribute("pageTitle", "Login");
         model.addAttribute("error", error);
         return "/accounts/login";
+    }
+
+    @GetMapping("/accounts/emailsignup")
+    public String emailsignup(Model model, @RequestParam(name = "error", required = false) String error) {
+        model.addAttribute("pageTitle", "Sign up");
+        model.addAttribute("error", error);
+        return "/accounts/emailsignup";
     }
 
     @GetMapping("/403")
@@ -84,8 +102,10 @@ public class RootController {
     @GetMapping("/{username}")
     public String userProfile(Model model, @PathVariable(value = "username") String username) {
         model.addAttribute("pageTitle", "@" + username + " - instagram_clone photos and videos");
+
         return "profile";
     }
+
 
     @GetMapping("/accounts/edit")
     public String editProfile(Model model) {
@@ -115,5 +135,6 @@ public class RootController {
         model.addAttribute("filename", path + "/" + filename);
         return "profile/edit";
     }
+
 
 }
