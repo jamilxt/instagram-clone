@@ -95,7 +95,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#username').focusout(function () {
-            $.get("/user/search", {
+            $.get("/user/is_available", {
                 username: $('#username').val()
             }, function (response) {
                 $('#Result').fadeOut();
@@ -107,12 +107,12 @@
 
     function finishAjax(id, response) {
         $('#Result').hide();
-        if (response === "Available") {
+        if (response === "true") {
             $('#btnSubmit').prop('disabled', false);
-            response = "<span class='badge badge-success'>" + response + "</div>";
+            response = "<span class='badge badge-success'>" + "Available" + "</div>";
         } else {
             $('#btnSubmit').prop('disabled', true);
-            response = "<span class='badge badge-danger'>" + response + "</div>";
+            response = "<span class='badge badge-danger'>" + "Unavailable" + "</div>";
         }
         $('#' + id).html(unescape(response));
         $('#' + id).fadeIn();

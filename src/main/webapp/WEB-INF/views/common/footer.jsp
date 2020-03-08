@@ -11,7 +11,7 @@
     $(document).ready(function(){
 
         $('#search_data').autocomplete({
-            source: "fetch.php",
+            source: "/user/search",
             minLength: 1,
             select: function(event, ui)
             {

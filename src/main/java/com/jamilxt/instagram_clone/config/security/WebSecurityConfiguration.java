@@ -64,7 +64,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .successHandler(customAuthSuccessHandler)
 //                .defaultSuccessUrl("/") // If the login is successful, user will be redirected to this URL.
-                .failureUrl("/login?error=true") // If the user fails to login, application will redirect the user to this endpoint
+                .failureUrl("/accounts/login?error=true") // If the user fails to login, application will redirect the user to this endpoint
                 .and()
                 .logout()
                 .logoutUrl("/logout")

@@ -90,10 +90,17 @@ public class UserController {
 
     }
 
+    @GetMapping(value = "user/is_available")
+    public @ResponseBody
+    ResponseEntity<?> isUsernameAvailable(@RequestParam(name = "username") String username) {
+        var data = userService.isUsernameAvailable(username);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     @GetMapping(value = "user/search")
     public @ResponseBody
-    ResponseEntity<?> searchUserByUsername(@RequestParam(name = "username") String username) {
-        var data = userService.searchUser(username);
+    ResponseEntity<?> searchUserByUsername(@RequestParam(name = "term") String query) {
+        var data = userService.findUser(query);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 

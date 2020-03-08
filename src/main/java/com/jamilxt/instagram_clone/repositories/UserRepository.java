@@ -2,6 +2,8 @@ package com.jamilxt.instagram_clone.repositories;
 
 import com.jamilxt.instagram_clone.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,5 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByActiveIsTrue();
 
-
+    @Query(value = "select *" +
+            " from tbl_user u" +
+            " where u.username like %:keyword% ", nativeQuery = true)
+    List<User> getUsersByQueryString(@Param("keyword") String query);
 }

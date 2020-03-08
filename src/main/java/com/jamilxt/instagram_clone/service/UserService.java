@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -75,11 +76,21 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(userId); // will be converted to soft delete
     }
 
-    public String searchUser(String username) {
-        if (userRepository.findByUsername(username).isEmpty()) {
-            return "Available";
-        } else {
-            return "Not available";
-        }
+    public boolean isUsernameAvailable(String username) {
+        return userRepository.findByUsername(username).isEmpty();
     }
+
+    public List<UserDto> findUser(String query) {
+        var users = this.userRepository.getUsersByQueryString(query);
+        var userDtos = new ArrayList<UserDto>();
+
+        for (var user : users) {
+            var userDto = new UserDto();
+            BeanUtils.copyProperties(user, userDto);
+            userDtos.add(userDto);
+        }
+
+        return userDtos;
+    }
+
 }
