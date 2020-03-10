@@ -35,6 +35,23 @@
         </tbody>
     </table>
 
+    <h6 class="text-muted text-right mb-3">Total Pages: ${photos.totalPages}</h6>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item <c:if test="${photos.first}">disabled</c:if>">
+                <a class="page-link" href="?page=${photos.number - 1}" tabindex="-1">Previous</a>
+            </li>
+            <c:forEach begin="${0}" end="${photos.totalPages - 1}" var="p">
+                <li class="page-item  <c:if test="${photos.number == p}">active</c:if>">
+                    <a class="page-link" href=" ?page=${p}">${p+1}</a>
+                </li>
+            </c:forEach>
+            <li class=" page-item <c:if test="${photos.last}">disabled</c:if>">
+                <a class="page-link" href="?page=${photos.number + 1}">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <!-- FOOTER -->

@@ -6,12 +6,10 @@ import com.jamilxt.instagram_clone.service.PhotoService;
 import com.jamilxt.instagram_clone.util.Constants;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
@@ -31,14 +29,16 @@ public class PhotoController {
     private PhotoService photoService;
 
     @GetMapping("/photo/show-all")
+//    @ResponseBody
     public String photo_showAll(Model model,
-                                @RequestParam(value = "caption") Optional<String> caption,
-                                @RequestParam(value = "page") Optional<Integer> page,
-                                @RequestParam(value = "sortBy") Optional<String> sortBy) {
+                                     @RequestParam(value = "caption") Optional<String> caption,
+                                     @RequestParam(value = "page") Optional<Integer> page,
+                                     @RequestParam(value = "sortBy") Optional<String> sortBy) {
         model.addAttribute("message", "Showing all photos");
         model.addAttribute("pageTitle", "Photo List");
         model.addAttribute("photos", photoService.showAll(caption, page, sortBy));
         return "photo/show-all";
+//        return photoService.showAll(caption, page, sortBy);
     }
 
     @GetMapping("/photo/add")

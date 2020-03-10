@@ -15,15 +15,18 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
  *   3. profiling - dev/prod (c)
  *   4. deployment to heroku (c)
  *   5. add user (c), change password, change role
- *   6. image upload, user details
+ *   6. image upload (c), user details
  *   7. SMTP setup
  *   8. change password, forgot password
  *   9. api for searching (c)
  *  10. Jquery Date Plugin in form (c)
  *  11. Soft Delete for user
- *  12. Pagination
- *  13. Sortable
- *  14.
+ *  12. Pagination (c)
+ *  13. Sort by (c)
+ *  14. Search
+ *  15. Use AWS S3 Bucket to upload files
+ *  16. single page view
+ *  17. Logged In User's Details in Session
  *
  *
  *
