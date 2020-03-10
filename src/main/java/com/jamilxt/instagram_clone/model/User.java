@@ -1,13 +1,17 @@
 package com.jamilxt.instagram_clone.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "tbl_user")
-public class User implements Serializable {
+public class User implements UserDetails, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "user_uuid")
@@ -34,6 +38,21 @@ public class User implements Serializable {
     private Boolean active = true;
     @Column(name = "propic")
     private String propic = "default.png";
+    @Column(name = "website")
+    private String website;
+    @Column(name = "bio")
+    private String bio;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
+    @Column(nullable = false, name = "enabled")
+    private boolean enabled = true;
+    @Column(nullable = false, name = "accountNonExpired")
+    private boolean accountNonExpired = true;
+    @Column(nullable = false, name = "accountNonLocked")
+    private boolean accountNonLocked = true;
+    @Column(nullable = false, name = "credentialsNonExpired")
+    private boolean credentialsNonExpired = true;
 
     public long getId() {
         return id;
@@ -43,25 +62,60 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    @Override
+    public List<Authority> getAuthorities() {
+        List<Authority> authorities = new ArrayList<>();
+        for (Authority authority : this.authorities) {
+            authorities.add(authority);
+        }
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public String getUsername() {
         return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Set<Authority> getAuthorities() {
-        return authorities;
-    }
+//    public Set<Authority> getAuthorities() {
+//        return authorities;
+//    }
 
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
@@ -113,5 +167,45 @@ public class User implements Serializable {
 
     public void setPropic(String propic) {
         this.propic = propic;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
     }
 }

@@ -29,7 +29,7 @@ public class PhotoService {
 //        }
         return photoRepository.findByCaption(caption.orElse("_"),
                 PageRequest.of(page.orElse(0), 10,
-                        Sort.Direction.ASC, sortBy.orElse("id")));
+                        Sort.Direction.DESC, sortBy.orElse("id")));
     }
 
     public void save(PhotoDto photoDto) {
@@ -38,5 +38,9 @@ public class PhotoService {
         BeanUtils.copyProperties(photoDto, photoEntity);
         photoRepository.save(photoEntity);
 
+    }
+
+    public void deletePhoto(Long id) {
+        photoRepository.deleteById(id); // will be converted to soft delete
     }
 }

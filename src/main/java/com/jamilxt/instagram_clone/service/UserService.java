@@ -2,11 +2,11 @@ package com.jamilxt.instagram_clone.service;
 
 import com.jamilxt.instagram_clone.dtos.UserDto;
 import com.jamilxt.instagram_clone.exceptions.ResourceAlreadyExistsException;
+import com.jamilxt.instagram_clone.exceptions.ResourceNotFoundException;
 import com.jamilxt.instagram_clone.model.Authority;
 import com.jamilxt.instagram_clone.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,17 +34,17 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        var userFromDb = userRepository.findByUsername(s)
-                .orElseThrow(() -> new UsernameNotFoundException("No user found with this email address."));
+        com.jamilxt.instagram_clone.model.User userEntity = userRepository.findByUsername(s)
+                .orElseThrow(() -> new ResourceNotFoundException("No user found with this username"));
 
 //        Set<GrantedAuthority> authorities = new java.util.ArrayList<>(Collections.emptyList()); // jamilxt
-        var authorities = userFromDb.getAuthorities();
+//        var authorities = userEntity.getAuthorities();
         // mainul35
         // after adding multiple roles - these are not working properly
         // I think this is important to grant roles
 //        authorities.add((GrantedAuthority) () -> userFromDb.getRole().name()); // mainul35
 
-        return new User(userFromDb.getUsername(), userFromDb.getPassword(), authorities); // This User class is from  Spring Security. Since we did not implement UserDetails interface from SpringSecurity, therefore we are creating an instance of Spring Security provided User class.
+        return userEntity; // This User class is from  Spring Security. Since we did not implement UserDetails interface from SpringSecurity, therefore we are creating an instance of Spring Security provided User class.
     }
 
     public List<com.jamilxt.instagram_clone.model.User> showAll() {

@@ -6,14 +6,18 @@ import com.jamilxt.instagram_clone.service.PhotoService;
 import com.jamilxt.instagram_clone.util.Constants;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.net.Authenticator;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,9 +35,9 @@ public class PhotoController {
     @GetMapping("/photo/show-all")
 //    @ResponseBody
     public String photo_showAll(Model model,
-                                     @RequestParam(value = "caption") Optional<String> caption,
-                                     @RequestParam(value = "page") Optional<Integer> page,
-                                     @RequestParam(value = "sortBy") Optional<String> sortBy) {
+                                @RequestParam(value = "caption") Optional<String> caption,
+                                @RequestParam(value = "page") Optional<Integer> page,
+                                @RequestParam(value = "sortBy") Optional<String> sortBy) {
         model.addAttribute("message", "Showing all photos");
         model.addAttribute("pageTitle", "Photo List");
         model.addAttribute("photos", photoService.showAll(caption, page, sortBy));
@@ -50,6 +54,8 @@ public class PhotoController {
 
     @PostMapping("/photo/add")
     public String photo_add_POST(@ModelAttribute("photo") Photo photo, @RequestParam("file") MultipartFile file) {
+
+
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
@@ -67,6 +73,15 @@ public class PhotoController {
         BeanUtils.copyProperties(photo, photoDto);
         photoService.save(photoDto);
         return "redirect:/photo/show-all";
+    }
+
+    @GetMapping("/photo/delete")
+    public String deleteUser(Model model, @RequestParam("id") long id) {
+
+        photoService.deletePhoto(id);
+        model.addAttribute("message", "Photo deleted successfully");
+        return "redirect:/photo/show-all";
+
     }
 
 }

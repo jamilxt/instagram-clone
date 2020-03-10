@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
 
         model.addAttribute("message", e.getMessage());
         e.printStackTrace();
-        return "error";
+        return "404";
     }
 
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR) // 500
@@ -37,4 +37,6 @@ public class GlobalExceptionHandler {
         model.addAttribute("message", e.getMessage());
         return "error";
     }
+
+
 }

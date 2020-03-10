@@ -60,20 +60,20 @@
                             </button>
                         </div>
                         <div class="modal-body">
-<%--                            <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"--%>
-<%--                                      style="display: none;"></p>--%>
-<%--                            <p>--%>
-<%--                                <label for="file" style="cursor: pointer;">--%>
-<%--                                    <img id="output" class="card-img"/>--%>
-<%--                                </label>--%>
-<%--                            </p>--%>
+                                <%--                            <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"--%>
+                                <%--                                      style="display: none;"></p>--%>
+                                <%--                            <p>--%>
+                                <%--                                <label for="file" style="cursor: pointer;">--%>
+                                <%--                                    <img id="output" class="card-img"/>--%>
+                                <%--                                </label>--%>
+                                <%--                            </p>--%>
 
-<%--                            <script>--%>
-<%--                                var loadFile = function (event) {--%>
-<%--                                    var image = document.getElementById('output');--%>
-<%--                                    image.src = URL.createObjectURL(event.target.files[0]);--%>
-<%--                                };--%>
-<%--                            </script>--%>
+                                <%--                            <script>--%>
+                                <%--                                var loadFile = function (event) {--%>
+                                <%--                                    var image = document.getElementById('output');--%>
+                                <%--                                    image.src = URL.createObjectURL(event.target.files[0]);--%>
+                                <%--                                };--%>
+                                <%--                            </script>--%>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
 
                 <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username"/>"
                    class="btn btn-outline-light">
-                    <img src="${pageContext.request.contextPath}/images/default.png"
+                    <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
                          class="rounded-circle border border-dark align-middle"
                          width="26px">
                 </a>

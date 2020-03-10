@@ -14,44 +14,56 @@
            class="btn btn-primary float-right">Add Photo</a>
     </h3>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
         <thead class="thead-light">
         <tr>
             <th>ID</th>
             <th>Photo</th>
             <th>Caption</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${ photos.content }" var="photo">
-        <tr>
-            <th>${ photo.photoId } </th>
-            <th>
-                <img class="img-responsive" width="60px"
-                     src="${pageContext.request.contextPath }/images/${photo.url}">
-            </th>
-            <th>${ photo.caption }</th>
-            </c:forEach>
+            <tr>
+                <th>${ photo.photoId } </th>
+                <th>
+                    <img class="img-responsive" width="60px"
+                         src="${pageContext.request.contextPath }/images/${photo.url}">
+                </th>
+                <th>${ photo.caption }</th>
+                <th>
+                    <a href="view?id=${ photo.photoId }"
+                       class="btn btn-success">View</a>
+                    <a href="edit?id=${ photo.photoId }"
+                       class="btn btn-warning">Edit</a>
+                    <a href="delete?id=${ photo.photoId }"
+                       class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
+                </th>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 
     <h6 class="text-muted text-right mb-3">Total Pages: ${photos.totalPages}</h6>
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item <c:if test="${photos.first}">disabled</c:if>">
-                <a class="page-link" href="?page=${photos.number - 1}" tabindex="-1">Previous</a>
-            </li>
-            <c:forEach begin="${0}" end="${photos.totalPages - 1}" var="p">
-                <li class="page-item  <c:if test="${photos.number == p}">active</c:if>">
-                    <a class="page-link" href=" ?page=${p}">${p+1}</a>
+    <c:if test="${photos.totalElements > 0}">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item <c:if test="${photos.first}">disabled</c:if>">
+                    <a class="page-link" href="?page=${photos.number - 1}" tabindex="-1">Previous</a>
                 </li>
-            </c:forEach>
-            <li class=" page-item <c:if test="${photos.last}">disabled</c:if>">
-                <a class="page-link" href="?page=${photos.number + 1}">Next</a>
-            </li>
-        </ul>
-    </nav>
+                <c:forEach begin="${0}" end="${photos.totalPages - 1}" var="p">
+                    <li class="page-item  <c:if test="${photos.number == p}">active</c:if>">
+                        <a class="page-link" href=" ?page=${p}">${p+1}</a>
+                    </li>
+                </c:forEach>
+                <li class=" page-item <c:if test="${photos.last}">disabled</c:if>">
+                    <a class="page-link" href="?page=${photos.number + 1}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </c:if>
 </div>
 
 <!-- FOOTER -->

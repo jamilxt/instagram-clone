@@ -1,7 +1,11 @@
 package com.jamilxt.instagram_clone.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tbl_photo")
@@ -14,6 +18,10 @@ public class Photo implements Serializable {
     private String url;
     @Column(name = "caption")
     private String caption;
+    @CreationTimestamp
+    private LocalDateTime created_at;
+    @UpdateTimestamp
+    private LocalDateTime updated_at;
 
     public long getPhotoId() {
         return photoId;
@@ -37,6 +45,22 @@ public class Photo implements Serializable {
 
     public void setCaption(String caption) {
         this.caption = caption;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 
     @Override

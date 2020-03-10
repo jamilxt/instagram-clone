@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,7 +40,9 @@ public class RootController {
     }
 
     @GetMapping("/")
-    public String root() {
+    public String root(Model model, HttpSession httpSession) {
+        User userEntity = (User) httpSession.getAttribute("authUser");
+        model.addAttribute("authUser", userEntity);
         return "index";
     }
 
@@ -82,6 +85,11 @@ public class RootController {
             var user = new User();
             user.setUsername("admin");
             user.setPassword(passwordEncoder.encode("secret"));
+            user.setFullName("Admin");
+            user.setGender("M");
+            user.setEmail("admin@gmail.com");
+            user.setEnabled(true);
+            user.setDob(LocalDate.now());
             Set<Authority> authorities = new HashSet<>();
             authorities.add(authorityService.findByRoleName("ROLE_ADMIN"));
             user.setAuthorities(authorities);
@@ -92,6 +100,11 @@ public class RootController {
             var user = new User();
             user.setUsername("user");
             user.setPassword(passwordEncoder.encode("secret"));
+            user.setFullName("User");
+            user.setGender("M");
+            user.setEmail("user@gmail.com");
+            user.setEnabled(true);
+            user.setDob(LocalDate.now());
             Set<Authority> authorities = new HashSet<>();
             authorities.add(authorityService.findByRoleName("ROLE_USER"));
             user.setAuthorities(authorities);
@@ -102,7 +115,7 @@ public class RootController {
     @GetMapping("/{username}")
     public String userProfile(Model model, @PathVariable(value = "username") String username) {
         model.addAttribute("pageTitle", "@" + username + " - instagram_clone photos and videos");
-
+        model.addAttribute("user", userService.loadUserByUsername(username));
         return "profile";
     }
 
