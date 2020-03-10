@@ -19,7 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
  *   7. SMTP setup
  *   8. change password, forgot password
  *   9. api for searching (c)
- *  10. Jquery Date Plugin in form
+ *  10. Jquery Date Plugin in form (c)
  *  11. Soft Delete for user
  *  12. Pagination
  *  13. Sortable

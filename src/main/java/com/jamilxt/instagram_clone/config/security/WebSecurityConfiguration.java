@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -46,9 +47,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // mainul35
                 // after adding multiple roles - these are not working properly
-                .antMatchers("/course/add").hasRole("ADMIN")
-                .antMatchers("/course/show-all").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/course/edit").hasAnyRole("USER")
+//                .antMatchers("/course/add").hasRole("ADMIN")
+//                .antMatchers("/course/show-all").hasAnyRole("ADMIN", "USER")
+//                .antMatchers("/course/edit").hasAnyRole("USER")
                 .antMatchers("/user/**").hasAnyRole("ADMIN")
                 // Following line denotes that all requests must be authenticated.
                 // Hence, once a request comes to our application, we will check if the user is authenticated or not.
@@ -72,5 +73,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling() // Custom Access Denied Handling
                 .accessDeniedHandler(new CustomAccessDeniedHandler());
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
     }
 }
