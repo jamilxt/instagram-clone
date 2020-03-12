@@ -116,7 +116,32 @@
 
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            POSTS
+            <%--            <div class="card card-body">--%>
+            <div class="row">
+                <div class="col-4 mb-4">
+                    <img src="/images/img1.jpg" class="w-100 h-100">
+                </div>
+                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>
+                <div class="col-4  mb-4">
+                    <img src="/images/img3.jpg" class="w-100 h-100">
+                </div>
+                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>                <div class="col-4  mb-4">
+                    <img src="/images/img2.jpg" class="w-100 h-100">
+                </div>
+            </div>
+            <%--            </div>--%>
         </div>
         <c:if test="${user.username == authUser.username}">
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

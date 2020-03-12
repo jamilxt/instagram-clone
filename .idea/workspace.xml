@@ -8,44 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="09b0406b-a470-47ba-86d3-3f1224bf53ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/dtos/PhotoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/dtos/PostDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/PhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts/emailsignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts/emailsignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/photo/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/post/add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/photo/show-all.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/post/show-all.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/PhotoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/controllers/RootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/dtos/PhotoDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/model/Photo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/repositories/PhotoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/service/PhotoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jamilxt/instagram_clone/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/config/security/CustomAuthSuccessHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/config/security/WebSecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/PhotoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/RootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/controllers/RootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/dtos/PhotoDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/model/Photo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/repositories/PhotoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/service/PhotoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/classes/com/jamilxt/instagram_clone/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/accounts/emailsignup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/accounts/emailsignup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/photo/add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/photo/show-all.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../social-community" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -101,13 +67,14 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/images" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/accounts" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.301">
@@ -236,7 +203,7 @@
       <workItem from="1583846541803" duration="13428000" />
       <workItem from="1583869261925" duration="9351000" />
       <workItem from="1583926222475" duration="17476000" />
-      <workItem from="1583994316238" duration="3690000" />
+      <workItem from="1583994316238" duration="12316000" />
     </task>
     <servers />
   </component>
@@ -371,6 +338,10 @@
       <screen x="0" y="900" width="1920" height="1080" />
     </state>
     <state x="632" y="1164" width="710" height="576" key="find.popup/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1583996684605" />
+    <state x="651" y="703" key="run.anything.popup" timestamp="1584004333072">
+      <screen x="55" y="0" width="1545" height="900" />
+    </state>
+    <state x="651" y="703" key="run.anything.popup/0.900.1920.1080/55.0.1545.900@0.900.1920.1080" timestamp="1584004333072" />
     <state x="464" y="95" width="670" height="58" key="search.everywhere.popup" timestamp="1583872680329">
       <screen x="55" y="0" width="1545" height="900" />
     </state>

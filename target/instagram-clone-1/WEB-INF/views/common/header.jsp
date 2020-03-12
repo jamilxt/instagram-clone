@@ -116,8 +116,8 @@
                 <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username"/>"
                    class="btn btn-outline-light">
                     <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
-                         class="rounded-circle border border-dark align-middle"
-                         width="26px">
+                         class="rounded-circle border border-dark align-middle "
+                         width="26px" height="26px">
                 </a>
             </li>
         </ul>

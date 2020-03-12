@@ -2,8 +2,24 @@ a {
     color: #003569;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1000px;
 }
 
+textarea {
+    resize: none;
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
 
