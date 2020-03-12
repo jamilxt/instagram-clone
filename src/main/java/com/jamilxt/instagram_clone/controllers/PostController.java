@@ -4,6 +4,7 @@ import com.jamilxt.instagram_clone.dtos.PostDto;
 import com.jamilxt.instagram_clone.model.Post;
 import com.jamilxt.instagram_clone.model.User;
 import com.jamilxt.instagram_clone.service.PostService;
+import com.jamilxt.instagram_clone.service.UserService;
 import com.jamilxt.instagram_clone.util.Constants;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +29,23 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/post/show-all")
 //    @ResponseBody
     public String post_showAll(Model model,
-                               @RequestParam(value = "caption") Optional<String> caption,
+                               @RequestParam(value = "username") Optional<String> username,
                                @RequestParam(value = "page") Optional<Integer> page,
                                @RequestParam(value = "sortBy") Optional<String> sortBy) {
         model.addAttribute("message", "Showing all posts");
         model.addAttribute("pageTitle", "Post List");
-        model.addAttribute("posts", postService.showAll(caption, page, sortBy));
+        if (username.isPresent()) {
+            User userEntity = (User) userService.loadUserByUsername(username.get());
+            model.addAttribute("posts", postService.getPostByUser(userEntity, page, sortBy));
+        } else {
+            model.addAttribute("posts", postService.showAll(page, sortBy));
+        }
         return "post/show-all";
 //        return photoService.showAll(caption, page, sortBy);
     }

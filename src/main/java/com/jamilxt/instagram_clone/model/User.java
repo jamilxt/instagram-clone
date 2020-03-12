@@ -54,7 +54,7 @@ public class User implements UserDetails, Serializable {
     @Column(nullable = false, name = "credentialsNonExpired")
     private boolean credentialsNonExpired = true;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.MERGE) // this needs to be LAZY - mainul35
     private List<Post> posts;
 
     public long getId() {

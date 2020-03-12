@@ -18,24 +18,26 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public Page<Post> showAll(Optional<String> caption,
-                              Optional<Integer> page,
-                              Optional<String> sortBy) {
+    public Page<Post> showAll(
+            Optional<Integer> page,
+            Optional<String> sortBy) {
 //        Pageable pageWithElements;
 //        if (sort.equals("NA")) {
 //            pageWithElements = PageRequest.of(pageIndex, rows, Sort.by("countryName").ascending());
 //        } else {
 //            pageWithElements = PageRequest.of(pageIndex, rows, Sort.by("countryName").descending());
 //        }
-        return postRepository.findByCaption(caption.orElse("_"),
+        return postRepository.findAll(
                 PageRequest.of(page.orElse(0), 10,
-                        Sort.Direction.DESC, sortBy.orElse("id")));
+                        Sort.Direction.DESC, sortBy.orElse("postId")));
     }
 
-    public Page<Post> getPostByUser(String username) {
-        return postRepository.findByUserUsername(username,
-                PageRequest.of(0, 10,
-                        Sort.Direction.DESC, "postId"));
+    public Page<Post> getPostByUser(User user,
+                                    Optional<Integer> page,
+                                    Optional<String> sortBy) {
+        return postRepository.findByUser(user,
+                PageRequest.of(page.orElse(0), 10,
+                        Sort.Direction.DESC, sortBy.orElse("postId")));
     }
 
 

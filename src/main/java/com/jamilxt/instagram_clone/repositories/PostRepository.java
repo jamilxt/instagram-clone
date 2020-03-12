@@ -17,7 +17,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query(value = "select * from tbl_post p where p.caption like %:keyword%", nativeQuery = true)
     Page<Post> findByCaption(@Param("keyword") String caption, Pageable pageable);
 
-    Page<Post> findByUserUsername(String username, Pageable pageable);
+    Page<Post> findByUser(User username, Pageable pageable);
 
     int countPostsByUser(User user);
 

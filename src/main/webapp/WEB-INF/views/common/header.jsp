@@ -33,7 +33,7 @@
 <nav class="navbar navbar-expand navbar-light bg-white border-bottom">
     <div class="container">
 
-        <a class="navbar-brand pl-3 font-weight-bold" href="${pageContext.request.contextPath }/">instagram_clone</a>
+        <a class="navbar-brand pl-3 font-weight-bold text-secondary" href="${pageContext.request.contextPath }/">instagram_clone</a>
 
         <input type="text" id="search_data" placeholder="Search" autocomplete="off" class="form-control w-25 border-danger"/>
 

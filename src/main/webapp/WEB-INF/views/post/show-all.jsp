@@ -39,7 +39,7 @@
                     </a>
                 </th>
                 <th>
-                    <a href="view?id=${ post.postId }"
+                    <a href="/p/${ post.postId }"
                        class="btn btn-success">View</a>
                     <a href="edit?id=${ post.postId }"
                        class="btn btn-warning">Edit</a>
@@ -56,16 +56,18 @@
     <c:if test="${posts.totalElements > 0}">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end">
-                <li class="page-item <c:if test="${posts.first}">disabled</c:if>">
+                <li class="page-item ${posts.first ? 'disabled' : ''}">
                     <a class="page-link" href="?page=${posts.number - 1}" tabindex="-1">Previous</a>
                 </li>
                 <c:forEach begin="${0}" end="${posts.totalPages - 1}" var="p">
-                    <li class="page-item  <c:if test="${posts.number == p}">active</c:if>">
+                    <li class="page-item ${posts.number == p ? 'active' : ''}">
                         <a class="page-link" href=" ?page=${p}">${p+1}</a>
                     </li>
                 </c:forEach>
-                <li class=" page-item <c:if test="${posts.last}">disabled</c:if>">
-                    <a class="page-link" href="?page=${posts.number + 1}">Next</a>
+                <li class="page-item ${posts.last ? 'disabled' : ''}">
+                        <%--                    ${param.username}--%>
+                    <a class="page-link"
+                       href="?page=${posts.number + 1}${!empty param.username ? '&username='.concat(param.username) : ''}">Next</a>
                 </li>
             </ul>
         </nav>

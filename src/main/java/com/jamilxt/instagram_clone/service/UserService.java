@@ -5,6 +5,7 @@ import com.jamilxt.instagram_clone.exceptions.ResourceAlreadyExistsException;
 import com.jamilxt.instagram_clone.exceptions.ResourceNotFoundException;
 import com.jamilxt.instagram_clone.model.Authority;
 import com.jamilxt.instagram_clone.repositories.UserRepository;
+import com.jamilxt.instagram_clone.request.UserRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -80,17 +81,17 @@ public class UserService extends BaseService implements UserDetailsService {
         return userRepository.findByUsername(username).isEmpty();
     }
 
-    public List<UserDto> findUser(String query) {
+    public List<UserRequest> findUser(String query) {
         var users = this.userRepository.getUsersByQueryString(query);
-        var userDtos = new ArrayList<UserDto>();
+        var userRequests = new ArrayList<UserRequest>();
 
         for (var user : users) {
-            var userDto = new UserDto();
-            BeanUtils.copyProperties(user, userDto);
-            userDtos.add(userDto);
+            var userRequest = new UserRequest();
+            BeanUtils.copyProperties(user, userRequest);
+            userRequests.add(userRequest);
         }
 
-        return userDtos;
+        return userRequests;
     }
 
 }

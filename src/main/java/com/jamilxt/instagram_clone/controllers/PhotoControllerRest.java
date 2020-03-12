@@ -21,11 +21,11 @@ public class PhotoControllerRest {
     private PostService postService;
 
 
-    @GetMapping("/photo/show-all-rest")
-    @ResponseBody
-    public Page<Post> photo_showAll_rest(
-            @RequestParam(value = "username") String username) {
-        return postService.getPostByUser(username);
-    }
+//    @GetMapping("/photo/show-all-rest")
+//    @ResponseBody
+//    public Page<Post> photo_showAll_rest(
+//            @RequestParam(value = "username") String username) {
+//        return postService.getPostByUser(username);
+//    }
 
 }
