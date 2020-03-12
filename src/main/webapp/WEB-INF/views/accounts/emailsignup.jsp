@@ -17,7 +17,7 @@
     <div class="card card-body">
         <c:if test="${pageContext.request.userPrincipal.name == null}">
             <h3 class="pt-3 text-center font-weight-bolder">instagram_clone</h3>
-            <h6 class="text-center font-weight-bold pt-3 pb-3 text-muted">Sign up to see photos and videos from your
+            <h6 class="text-center font-weight-bold pt-3 pb-3 text-muted">Sign up to see posts and videos from your
                 friends.</h6>
             <c:if test="${error == 'true'}">
                 <div class="alert alert-danger" role="alert" id="success-alert">Wrong username or

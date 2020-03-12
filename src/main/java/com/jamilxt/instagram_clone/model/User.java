@@ -54,6 +54,9 @@ public class User implements UserDetails, Serializable {
     @Column(nullable = false, name = "credentialsNonExpired")
     private boolean credentialsNonExpired = true;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private List<Post> posts;
+
     public long getId() {
         return id;
     }
@@ -207,5 +210,13 @@ public class User implements UserDetails, Serializable {
 
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

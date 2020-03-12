@@ -1,6 +1,6 @@
 package com.jamilxt.instagram_clone.dtos;
 
-public class PhotoDto {
+public class PostDto {
     String url;
     String caption;
 

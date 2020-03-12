@@ -4,6 +4,7 @@ import com.jamilxt.instagram_clone.model.Authority;
 import com.jamilxt.instagram_clone.model.User;
 import com.jamilxt.instagram_clone.repositories.UserRepository;
 import com.jamilxt.instagram_clone.service.AuthorityService;
+import com.jamilxt.instagram_clone.service.PostService;
 import com.jamilxt.instagram_clone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,14 +30,16 @@ public class RootController {
     private final UserRepository userRepository;
     private final AuthorityService authorityService;
     private final PasswordEncoder passwordEncoder;
+    private final PostService postService;
 
     @Autowired
     UserService userService;
 
-    public RootController(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityService authorityService) {
+    public RootController(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityService authorityService, PostService postService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityService = authorityService;
+        this.postService = postService;
     }
 
     @GetMapping("/")
@@ -115,7 +118,9 @@ public class RootController {
     @GetMapping("/{username}")
     public String userProfile(Model model, @PathVariable(value = "username") String username) {
         model.addAttribute("pageTitle", "@" + username + " - instagram_clone photos and videos");
-        model.addAttribute("user", userService.loadUserByUsername(username));
+        User user = (User) userService.loadUserByUsername(username);
+        model.addAttribute("user", user);
+        model.addAttribute("totalPosts", postService.totalPostsOfUser(user));
         return "profile";
     }
 

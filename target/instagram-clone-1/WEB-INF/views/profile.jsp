@@ -35,43 +35,48 @@
         <div class="col-9 pt-5">
             <div>
                 <h4>${user.username}
-                    <c:if test="${user.username == authUser.username}">
+                    <c:choose>
+                        <c:when test="${user.username == authUser.username}">
+                            <a href="${pageContext.request.contextPath}/accounts/edit"
+                               class="btn btn-sm btn-outline-secondary ml-3">Edit Profile</a>
+                            <button type="button" class="btn btn-light ml-2" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                <i class="fa fa-1x fa-cog text-dark nav-item"></i>
+                            </button>
 
-                        <a href="${pageContext.request.contextPath}/accounts/edit"
-                           class="btn btn-sm btn-outline-secondary ml-3">Edit Profile</a>
-                        <button type="button" class="btn btn-light ml-2" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                            <i class="fa fa-1x fa-cog text-dark nav-item"></i>
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="list-group text-center" style="font-size: 16px">
-                                        <a href="/accounts/edit" class="list-group-item list-group-item-action">
-                                            Change Password
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                            Report a Problem
-                                        </a>
-                                        <a href="/logout" class="list-group-item list-group-item-action">
-                                            Logout
-                                        </a>
-                                        <button class="list-group-item list-group-item-action" data-dismiss="modal">
-                                            Cancel
-                                        </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="list-group text-center" style="font-size: 16px">
+                                            <a href="/accounts/edit" class="list-group-item list-group-item-action">
+                                                Change Password
+                                            </a>
+                                                <%--                                        <a href="#" class="list-group-item list-group-item-action">--%>
+                                                <%--                                            Report a Problem--%>
+                                                <%--                                        </a>--%>
+                                            <a href="/logout" class="list-group-item list-group-item-action">
+                                                Logout
+                                            </a>
+                                            <button class="list-group-item list-group-item-action" data-dismiss="modal">
+                                                Cancel
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/"
+                               class="btn btn-sm btn-primary ml-3">Follow</a>
+                        </c:otherwise>
+                    </c:choose>
                 </h4>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>0</strong> posts</div>
+                <div class="pr-5"><strong>${totalPosts}</strong> posts</div>
                 <div class="pr-5"><strong>0</strong> followers</div>
                 <div class="pr-5"><strong>0</strong> following</div>
             </div>
@@ -95,21 +100,23 @@
     <nav class="mt-5 border-top">
         <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-               aria-controls="nav-home" aria-selected="true">POSTS</a>
+               aria-controls="nav-home" aria-selected="true"><i class="fa fa-1x fa-table nav-item"></i> POSTS</a>
             <c:if test="${user.username == authUser.username}">
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                   aria-controls="nav-profile" aria-selected="false">IGTV</a>
+                   aria-controls="nav-profile" aria-selected="false"><i class="fa fa-1x fa-file-video-o nav-item"></i>
+                    IGTV</a>
                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                   aria-controls="nav-contact" aria-selected="false">SAVED</a>
+                   aria-controls="nav-contact" aria-selected="false"><i class="fa fa-1x fa-bookmark nav-item"></i> SAVED</a>
             </c:if>
             <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
-               aria-controls="nav-about" aria-selected="false">TAGGED</a>
+               aria-controls="nav-about" aria-selected="false"><i class="fa fa-1x fa-address-book-o nav-item"></i>
+                TAGGED</a>
         </div>
     </nav>
 
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            POST
+            POSTS
         </div>
         <c:if test="${user.username == authUser.username}">
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

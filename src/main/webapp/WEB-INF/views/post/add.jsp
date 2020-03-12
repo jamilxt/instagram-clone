@@ -10,12 +10,12 @@
 <div class="container">
 
     <h3 class="mt-3 mb-3">${ pageTitle }
-        <a href="${pageContext.request.contextPath }/photo/show-all"
-           class="btn btn-primary float-right">Photo List</a>
+        <a href="${pageContext.request.contextPath }/post/show-all"
+           class="btn btn-primary float-right">Post List</a>
     </h3>
 
-    <form:form action="${pageContext.request.contextPath }/photo/add"
-               modelAttribute="photo"
+    <form:form action="${pageContext.request.contextPath }/post/add"
+               modelAttribute="post"
                enctype="multipart/form-data">
 
         <div class="form-group">

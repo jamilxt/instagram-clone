@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService extends BaseService implements UserDetailsService {
 
     @Autowired
     private final UserRepository userRepository;

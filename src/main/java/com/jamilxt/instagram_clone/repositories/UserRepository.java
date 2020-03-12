@@ -22,4 +22,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
             " from tbl_user u" +
             " where u.username like %:keyword% ", nativeQuery = true)
     List<User> getUsersByQueryString(@Param("keyword") String query);
+
 }

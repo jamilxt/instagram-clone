@@ -10,8 +10,8 @@
 <div class="container">
 
     <h3 class="mt-3 mb-3">${ pageTitle }
-        <a href="${pageContext.request.contextPath }/photo/add"
-           class="btn btn-primary float-right">Add Photo</a>
+        <a href="${pageContext.request.contextPath }/post/add"
+           class="btn btn-primary float-right">Add Post</a>
     </h3>
 
     <table class="table table-bordered text-center">
@@ -20,24 +20,30 @@
             <th>ID</th>
             <th>Photo</th>
             <th>Caption</th>
+            <th>User</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${ photos.content }" var="photo">
+        <c:forEach items="${ posts.content }" var="post">
             <tr>
-                <th>${ photo.photoId } </th>
+                <th>${ post.postId } </th>
                 <th>
                     <img class="img-responsive" width="60px"
-                         src="${pageContext.request.contextPath }/images/${photo.url}">
+                         src="${pageContext.request.contextPath }/images/${post.url}">
                 </th>
-                <th>${ photo.caption }</th>
+                <th>${ post.caption }</th>
                 <th>
-                    <a href="view?id=${ photo.photoId }"
+                    <a href="${pageContext.request.contextPath }/${ post.user.username }">
+                            ${ post.user.username }
+                    </a>
+                </th>
+                <th>
+                    <a href="view?id=${ post.postId }"
                        class="btn btn-success">View</a>
-                    <a href="edit?id=${ photo.photoId }"
+                    <a href="edit?id=${ post.postId }"
                        class="btn btn-warning">Edit</a>
-                    <a href="delete?id=${ photo.photoId }"
+                    <a href="delete?id=${ post.postId }"
                        class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
                 </th>
             </tr>
@@ -45,21 +51,21 @@
         </tbody>
     </table>
 
-    <h6 class="text-muted text-right mb-3">Total Pages: ${photos.totalPages}</h6>
+    <h6 class="text-muted text-right mb-3">Total Pages: ${posts.totalPages}</h6>
 
-    <c:if test="${photos.totalElements > 0}">
+    <c:if test="${posts.totalElements > 0}">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end">
-                <li class="page-item <c:if test="${photos.first}">disabled</c:if>">
-                    <a class="page-link" href="?page=${photos.number - 1}" tabindex="-1">Previous</a>
+                <li class="page-item <c:if test="${posts.first}">disabled</c:if>">
+                    <a class="page-link" href="?page=${posts.number - 1}" tabindex="-1">Previous</a>
                 </li>
-                <c:forEach begin="${0}" end="${photos.totalPages - 1}" var="p">
-                    <li class="page-item  <c:if test="${photos.number == p}">active</c:if>">
+                <c:forEach begin="${0}" end="${posts.totalPages - 1}" var="p">
+                    <li class="page-item  <c:if test="${posts.number == p}">active</c:if>">
                         <a class="page-link" href=" ?page=${p}">${p+1}</a>
                     </li>
                 </c:forEach>
-                <li class=" page-item <c:if test="${photos.last}">disabled</c:if>">
-                    <a class="page-link" href="?page=${photos.number + 1}">Next</a>
+                <li class=" page-item <c:if test="${posts.last}">disabled</c:if>">
+                    <a class="page-link" href="?page=${posts.number + 1}">Next</a>
                 </li>
             </ul>
         </nav>

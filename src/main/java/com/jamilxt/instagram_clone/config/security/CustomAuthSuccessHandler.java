@@ -1,6 +1,7 @@
 package com.jamilxt.instagram_clone.config.security;
 
 import com.jamilxt.instagram_clone.model.User;
+import com.jamilxt.instagram_clone.service.BaseService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class CustomAuthSuccessHandler implements AuthenticationSuccessHandler {
+public class CustomAuthSuccessHandler extends BaseService implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(
@@ -21,7 +22,7 @@ public class CustomAuthSuccessHandler implements AuthenticationSuccessHandler {
             HttpServletResponse response,
             Authentication authentication) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        com.jamilxt.instagram_clone.model.User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        com.jamilxt.instagram_clone.model.User authUser = getLoggedInUser();
         session.setAttribute("authUser", authUser);
         session.setAttribute("username", authUser.getUsername());
         session.setAttribute("authorities", authentication.getAuthorities());

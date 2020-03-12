@@ -40,7 +40,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         // We are permitting all static resources to be accessed publicly
         http
                 .authorizeRequests()
-                .antMatchers("/images/**", "/css/**", "/js/**", "/accounts/**").permitAll()
+                .antMatchers("/images/**", "/css/**", "/js/**", "/accounts/login", "/accounts/emailsignup", "/post/**").permitAll()
                 // We are restricting endpoints for individual roles.
                 // Only users with allowed roles will be able to access individual endpoints.
                 .and()
@@ -50,7 +50,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/course/add").hasRole("ADMIN")
 //                .antMatchers("/course/show-all").hasAnyRole("ADMIN", "USER")
 //                .antMatchers("/course/edit").hasAnyRole("USER")
-                .antMatchers("/user/**").hasAnyRole("ADMIN")
+//                .antMatchers("/user/**").hasAnyRole("ADMIN")
                 // Following line denotes that all requests must be authenticated.
                 // Hence, once a request comes to our application, we will check if the user is authenticated or not.
                 .anyRequest().authenticated()

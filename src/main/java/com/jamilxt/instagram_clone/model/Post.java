@@ -8,27 +8,30 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tbl_photo")
-public class Photo implements Serializable {
+@Table(name = "tbl_post")
+public class Post implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
-    private long photoId;
+    private long postId;
     @Column(name = "url")
     private String url;
     @Column(name = "caption")
     private String caption;
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
     @CreationTimestamp
     private LocalDateTime created_at;
     @UpdateTimestamp
     private LocalDateTime updated_at;
 
-    public long getPhotoId() {
-        return photoId;
+    public long getPostId() {
+        return postId;
     }
 
-    public void setPhotoId(long photoId) {
-        this.photoId = photoId;
+    public void setPostId(long postId) {
+        this.postId = postId;
     }
 
     public String getUrl() {
@@ -63,12 +66,11 @@ public class Photo implements Serializable {
         this.updated_at = updated_at;
     }
 
-    @Override
-    public String toString() {
-        return "Photo{" +
-                "photoId=" + photoId +
-                ", url='" + url + '\'' +
-                ", caption='" + caption + '\'' +
-                '}';
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
