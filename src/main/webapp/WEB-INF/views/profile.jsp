@@ -38,7 +38,7 @@
                     <c:choose>
                         <c:when test="${user.username == authUser.username}">
                             <a href="${pageContext.request.contextPath}/accounts/edit"
-                               class="btn btn-sm btn-outline-secondary ml-3">Edit Profile</a>
+                               class="btn btn-sm btn-outline-danger ml-3">Edit Profile</a>
                             <button type="button" class="btn btn-light ml-2" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                 <i class="fa fa-1x fa-cog text-dark nav-item"></i>
@@ -77,8 +77,8 @@
             </div>
             <div class="d-flex">
                 <div class="pr-5"><strong>${totalPosts}</strong> posts</div>
-                <div class="pr-5"><strong>0</strong> followers</div>
-                <div class="pr-5"><strong>0</strong> following</div>
+                <div class="pr-5 text-danger"><strong>0</strong> followers</div>
+                <div class="pr-5 text-danger"><strong>0</strong> following</div>
             </div>
 
             <c:if test="${user.fullName != null}">
@@ -100,15 +100,17 @@
     <nav class="mt-5 border-top">
         <div class="nav nav-pills justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-               aria-controls="nav-home" aria-selected="true"><i class="fa fa-1x fa-table nav-item"></i> POSTS</a>
+               aria-controls="nav-home" aria-selected="true"> <i class="fa fa-1x fa-table nav-item"></i> POSTS</a>
             <c:if test="${user.username == authUser.username}">
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                <a class="nav-item nav-link text-danger" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                   role="tab"
                    aria-controls="nav-profile" aria-selected="false"><i class="fa fa-1x fa-file-video-o nav-item"></i>
                     IGTV</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                <a class="nav-item nav-link text-danger" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                   role="tab"
                    aria-controls="nav-contact" aria-selected="false"><i class="fa fa-1x fa-bookmark nav-item"></i> SAVED</a>
             </c:if>
-            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
+            <a class="nav-item nav-link text-danger" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
                aria-controls="nav-about" aria-selected="false"><i class="fa fa-1x fa-address-book-o nav-item"></i>
                 TAGGED</a>
         </div>
@@ -116,31 +118,40 @@
 
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
             <%--            <div class="card card-body">--%>
             <div class="row">
-                <div class="col-4 mb-4">
-                    <img src="/images/img1.jpg" class="w-100 h-100">
-                </div>
-                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>
-                <div class="col-4  mb-4">
-                    <img src="/images/img3.jpg" class="w-100 h-100">
-                </div>
-                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>                <div class="col-4  mb-4">
-                    <img src="/images/img2.jpg" class="w-100 h-100">
-                </div>
+                <c:forEach items="${user.posts}" var="post">
+                    <div class="col-4 mb-4">
+                        <div class="imgHoverContainer w-100 h-100 ">
+                            <a href="/p/${post.postId}">
+                                <img src="/images/${post.url}" class="w-100 h-100 imgHoverImage">
+                                <div class="imgHoverMiddle">
+                                    <div class="imgHoverText">
+                                        <i class="fa fa-1x fa-heart nav-item"></i> 0
+                                        <i class="fa fa-1x fa-comment nav-item ml-4"></i> 0
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
+
+            <c:if test="${totalPosts == 0}">
+                <div class="text-center text-muted mt-5">
+                    <i class="fa fa-4x fa-table nav-item"></i>
+                    <h4>
+                        Posts of
+                        <c:choose>
+                            <c:when test="${user.username == authUser.username}">yours</c:when>
+                            <c:otherwise>${user.username}</c:otherwise>
+                        </c:choose>
+                    </h4>
+                    <small>No Post Available</small>
+                </div>
+            </c:if>
             <%--            </div>--%>
         </div>
         <c:if test="${user.username == authUser.username}">

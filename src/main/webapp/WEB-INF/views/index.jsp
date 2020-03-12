@@ -8,7 +8,7 @@
 <jsp:include page="common/header.jsp"/>
 
 <!-- MAIN CONTENT OF THE PAGE -->
-<div class="container">
+<div class="container  mt-4">
 
 
     <div class="row">
@@ -16,13 +16,16 @@
         <div class="col-8">
 
             <%-- POST 1 --%>
-            <div class="card mt-3">
+            <div class="card border-danger">
                 <div class="card-body p-0">
 
                     <div class="p-3">
-                        <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
-                             class="rounded-circle border border-dark align-middle mr-2"
-                             width="30px" height="30px">
+                        <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
+                           class="font-weight-bold text-dark">
+                            <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
+                                 class="rounded-circle border border-light align-middle mr-2"
+                                 width="30px" height="30px">
+                        </a>
                         <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
                            class="font-weight-bold text-dark">
                             ${authUser.username}
@@ -74,20 +77,20 @@
                     <%--                    <img src="/images/course_cover.jpg" width="" class="w-100 card-img"/>--%>
                     <div id="post_1_carouselExampleIndicators" class="carousel slide" data-ride="false"
                          data-wrap="false">
-                        <ol class="carousel-indicators">
+                        <ol class="carousel-indicators text-primary">
                             <li data-target="#post_1_carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#post_1_carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#post_1_carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" style="height: 400px">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="/images/course_cover.jpg" alt="First slide">
+                                <img class="d-block w-100 h-100" src="/images/course_cover.jpg" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="/images/course_cover.jpg" alt="Second slide">
+                                <img class="d-block w-100  h-100" src="/images/img1.jpg" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="/images/course_cover.jpg" alt="Third slide">
+                                <img class="d-block w-100  h-100" src="/images/img2.jpg" alt="Third slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#post_1_carouselExampleIndicators" role="button"
@@ -182,11 +185,13 @@
 
         <div class="col-4">
 
-            <div class="mt-3 p-3">
-
-                <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
-                     class="rounded-circle border border-dark align-middle mr-2"
-                     width="50px" height="50px">
+            <div class="">
+                <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
+                   class="font-weight-bold text-dark">
+                    <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
+                         class="rounded-circle border border-light align-middle mr-2"
+                         width="50px" height="50px">
+                </a>
                 <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
                    class="font-weight-bold">
                     ${authUser.username}
@@ -194,7 +199,7 @@
 
             </div>
 
-            <div class="card mt-3">
+            <div class="card mt-3 border-danger">
                 <div class="card-body">
 
                     <h6 class="font-weight-bold text-muted small">Stories</h6>
@@ -202,7 +207,7 @@
                 </div>
             </div>
 
-            <div class="card mt-3">
+            <div class="card mt-3 border-danger">
                 <div class="card-body">
 
                     <h6 class="font-weight-bold text-muted small">Suggestions For You</h6>

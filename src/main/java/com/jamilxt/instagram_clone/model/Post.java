@@ -6,25 +6,37 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_post")
 public class Post implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private long postId;
+
     @Column(name = "url")
     private String url;
+
     @Column(name = "caption")
     private String caption;
+
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;
+
     @CreationTimestamp
     private LocalDateTime created_at;
+
     @UpdateTimestamp
     private LocalDateTime updated_at;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments  = new ArrayList<>();
+
 
     public long getPostId() {
         return postId;
@@ -72,5 +84,13 @@ public class Post implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
