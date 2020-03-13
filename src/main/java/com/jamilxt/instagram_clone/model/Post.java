@@ -18,8 +18,10 @@ public class Post implements Serializable {
     @Column(name = "id", nullable = false)
     private long postId;
 
-    @Column(name = "url")
-    private String url;
+    //    @Column(name = "url")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "post_image")
+    private List<String> images = new ArrayList<>();
 
     @Column(name = "caption")
     private String caption;
@@ -35,7 +37,7 @@ public class Post implements Serializable {
     private LocalDateTime updated_at;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Comment> comments  = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
 
 
     public long getPostId() {
@@ -46,12 +48,12 @@ public class Post implements Serializable {
         this.postId = postId;
     }
 
-    public String getUrl() {
-        return url;
+    public List<String> getImages() {
+        return images;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 
     public String getCaption() {

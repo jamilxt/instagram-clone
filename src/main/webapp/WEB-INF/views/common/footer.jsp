@@ -40,7 +40,8 @@
                     src: '/images/' + item.propic,
                     alt: item.label,
                     class: 'rounded-circle align-middle float-left mr-2',
-                    width: 32
+                    width: 32,
+                    height: 32,
                 }))
                 .append('<b>' + item.label + '</b>')
                 .append($('<br>'))

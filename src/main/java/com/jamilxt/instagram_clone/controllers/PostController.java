@@ -3,9 +3,11 @@ package com.jamilxt.instagram_clone.controllers;
 import com.jamilxt.instagram_clone.dtos.PostDto;
 import com.jamilxt.instagram_clone.model.Post;
 import com.jamilxt.instagram_clone.model.User;
+import com.jamilxt.instagram_clone.request.CommentRequest;
 import com.jamilxt.instagram_clone.service.PostService;
 import com.jamilxt.instagram_clone.service.UserService;
 import com.jamilxt.instagram_clone.util.Constants;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -58,25 +64,32 @@ public class PostController {
     }
 
     @PostMapping("/post/add")
-    public String post_add_POST(@ModelAttribute("post") Post post, @RequestParam("file") MultipartFile file, HttpSession httpSession) {
+    public String post_add_POST(@ModelAttribute("post") Post post, @RequestParam("files") List<MultipartFile> multipartFiles, HttpSession httpSession) {
 
         User userEntity = (User) httpSession.getAttribute("authUser");
 
-        if (!file.isEmpty()) {
-            try {
-                byte[] bytes = file.getBytes();
-                String absoluteFilePath = context.getRealPath(Constants.UPLOADED_FOLDER);
-                Path path = Paths.get(absoluteFilePath + file.getOriginalFilename());
-                Files.write(path, bytes);
-                post.setUrl(file.getOriginalFilename());
-            } catch (IOException e) {
-                throw new RuntimeException(e.getMessage());
+        List<String> postImages = new ArrayList<>();
+
+        for (MultipartFile file :
+                multipartFiles) {
+            if (!file.isEmpty()) {
+                try {
+                    byte[] bytes = file.getBytes();
+                    String absoluteFilePath = context.getRealPath(Constants.UPLOADED_FOLDER);
+                    Path path = Paths.get(absoluteFilePath + file.getOriginalFilename());
+                    Files.write(path, bytes);
+                    postImages.add(file.getOriginalFilename());
+                } catch (IOException e) {
+                    throw new RuntimeException(e.getMessage());
+                }
             }
         }
 
+        post.setImages(postImages);
 
         var postDto = new PostDto();
         BeanUtils.copyProperties(post, postDto);
+//        postDto.setImages(postImages);
         postService.save(postDto, userEntity);
         return "redirect:/post/show-all";
     }
@@ -93,7 +106,16 @@ public class PostController {
     @GetMapping("/p/{postId}")
     public String singlePost(Model model, @PathVariable(value = "postId") String postId) {
         model.addAttribute("postId", postId);
+        Post post = postService.singlePost(Long.parseLong(postId)).get();
+        List<CommentRequest> comments = postService.getCommentByPostFirst(post);
+        model.addAttribute("singlePost", post);
+        PrettyTime p = new PrettyTime();
+        String postedAt = p.format(new Date(Timestamp.valueOf(post.getCreated_at()).getTime()));
+        model.addAttribute("postedAt", postedAt);
+        model.addAttribute("comments", comments);
+        model.addAttribute("totalComments", postService.totalCommentsOfPost(post));
         return "post/view";
     }
+
 
 }

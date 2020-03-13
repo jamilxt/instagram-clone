@@ -7,6 +7,7 @@
     <title>${ pageTitle }</title>
     <link rel="stylesheet"
           href="${pageContext.request.contextPath }/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
     <link rel="stylesheet"
           href="${pageContext.request.contextPath }/css/main.css"/>
 
@@ -19,7 +20,6 @@
             crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
 
     <script
             src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -35,7 +35,8 @@
 
         <a class="navbar-brand pl-3 font-weight-bold text-secondary" href="${pageContext.request.contextPath }/">instagram_clone</a>
 
-        <input type="text" id="search_data" placeholder="Search" autocomplete="off" class="form-control w-25 border-danger"/>
+        <input type="text" id="search_data" placeholder="Search" autocomplete="off"
+               class="form-control w-25 shadow-none"/>
 
         <ul class="navbar-nav">
 
@@ -95,7 +96,8 @@
             <li class="nav-item ml-3">
 
                 <div class="dropdown">
-                    <a class="btn btn-outline-danger" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    <a class="btn btn-outline-danger" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-1x fa-heart-o text-muted nav-item"></i>
                     </a>

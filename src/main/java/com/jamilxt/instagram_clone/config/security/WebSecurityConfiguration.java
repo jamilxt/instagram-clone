@@ -40,7 +40,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         // We are permitting all static resources to be accessed publicly
         http
                 .authorizeRequests()
-                .antMatchers("/images/**", "/css/**", "/js/**", "/accounts/login", "/accounts/emailsignup", "/post/**").permitAll()
+                .antMatchers("/images/**", "/css/**", "/js/**", "/accounts/login", "/accounts/emailsignup", "/post/**", "/api/**").permitAll()
                 // We are restricting endpoints for individual roles.
                 // Only users with allowed roles will be able to access individual endpoints.
                 .and()

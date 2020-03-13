@@ -1,16 +1,18 @@
 package com.jamilxt.instagram_clone.dtos;
 
+import java.util.List;
+
 public class PostDto {
-    String url;
+    List<String> images;
     String caption;
 
 
-    public String getUrl() {
-        return url;
+    public List<String> getImages() {
+        return images;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 
     public String getCaption() {

@@ -2,6 +2,7 @@
          pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- HEADER -->
 <jsp:include page="../common/header.jsp"/>
@@ -29,8 +30,9 @@
             <tr>
                 <th>${ post.postId } </th>
                 <th>
-                    <img class="img-responsive" width="60px"
-                         src="${pageContext.request.contextPath }/images/${post.url}">
+                        ${fn:length(post.images)}
+                    <img class="img-responsive" width="200px"
+                         src="${pageContext.request.contextPath }/images/${post.images[0]}">
                 </th>
                 <th>${ post.caption }</th>
                 <th>

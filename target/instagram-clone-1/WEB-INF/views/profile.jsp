@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- GLOBAL HEADER -->
 <jsp:include page="common/header.jsp"/>
@@ -103,6 +104,7 @@
                aria-controls="nav-home" aria-selected="true"> <i class="fa fa-1x fa-table nav-item"></i> POSTS</a>
             <c:if test="${user.username == authUser.username}">
                 <a class="nav-item nav-link text-danger" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                   style="display: none"
                    role="tab"
                    aria-controls="nav-profile" aria-selected="false"><i class="fa fa-1x fa-file-video-o nav-item"></i>
                     IGTV</a>
@@ -126,14 +128,18 @@
                     <div class="col-4 mb-4">
                         <div class="imgHoverContainer w-100 h-100 ">
                             <a href="/p/${post.postId}">
-                                <img src="/images/${post.url}" class="w-100 h-100 imgHoverImage">
+                                <img src="/images/${post.images[0]}" class="w-100 h-100 imgHoverImage">
                                 <div class="imgHoverMiddle">
+                                        <%--                                        ${fn:length(post.comments)}--%>
                                     <div class="imgHoverText">
                                         <i class="fa fa-1x fa-heart nav-item"></i> 0
                                         <i class="fa fa-1x fa-comment nav-item ml-4"></i> 0
                                     </div>
                                 </div>
                             </a>
+                            <c:if test="${fn:length(post.images) > 1}">
+                                <div class="multipleImage"><i class="fa fa-1x fa-clone nav-item text-white"></i></div>
+                            </c:if>
                         </div>
                     </div>
                 </c:forEach>

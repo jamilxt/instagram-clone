@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- HEADER -->
 <jsp:include page="../common/header.jsp"/>
@@ -19,50 +20,68 @@
                 <div class="col-8 pr-0">
                     <div id="post_1_carouselExampleIndicators" class="carousel slide" data-ride="false"
                          data-wrap="false">
-                        <ol class="carousel-indicators text-primary">
-                            <li data-target="#post_1_carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#post_1_carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#post_1_carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
+                        <c:if test="${fn:length(singlePost.images) > 1}">
+
+                            <ol class="carousel-indicators text-primary">
+                                <li data-target="#post_1_carouselExampleIndicators" data-slide-to="0"
+                                    class="active"></li>
+
+                                <c:if test="${fn:length(singlePost.images) > 1}">
+                                    <c:forEach items="${singlePost.images}" begin="1" var="image" varStatus="loop">
+                                        <li data-target="#post_1_carouselExampleIndicators"
+                                            data-slide-to="${loop.index}"></li>
+                                    </c:forEach>
+                                </c:if>
+                            </ol>
+                        </c:if>
+
                         <div class="carousel-inner" style="height: 400px;">
                             <div class="carousel-item active">
-                                <img class="d-block w-100 h-100" src="/images/course_cover.jpg" alt="First slide">
+                                <img class="d-block w-100 h-100" src="/images/${singlePost.images[0]}"
+                                     alt="First slide">
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100  h-100" src="/images/img1.jpg" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100  h-100" src="/images/img2.jpg" alt="Third slide">
-                            </div>
+                            <c:if test="${fn:length(singlePost.images) > 1}">
+                                <c:forEach items="${singlePost.images}" begin="1" var="image">
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100  h-100" src="/images/${image}" alt="Second slide">
+                                    </div>
+                                </c:forEach>
+                                <%--                                <div class="carousel-item">--%>
+                                <%--                                    <img class="d-block w-100  h-100" src="/images/img2.jpg" alt="Third slide">--%>
+                                <%--                                </div>--%>
+                            </c:if>
                         </div>
-                        <a class="carousel-control-prev" href="#post_1_carouselExampleIndicators" role="button"
-                           data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#post_1_carouselExampleIndicators" role="button"
-                           data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                        <c:if test="${fn:length(singlePost.images) > 1}">
+
+                            <a class="carousel-control-prev" href="#post_1_carouselExampleIndicators" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#post_1_carouselExampleIndicators" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </c:if>
                     </div>
 
                     <div class="card-footer bg-white">
 
-                        <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/">
+                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
                             <%--                            <i class="fa fa-1x fa-heart text-muted nav-item"></i>--%>
                             <i class="fa fa-1x fa-heart text-danger nav-item"></i> <span class="text-dark ml-1">1</span>
                         </a>
 
-                        <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/">
-                            <i class="fa fa-1x fa-comment text-muted nav-item"></i>
+                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
+                            <i class="fa fa-1x fa-comment text-muted nav-item"></i> ${totalComments}
                         </a>
 
-                        <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/">
+                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
                             <i class="fa fa-1x fa-share text-muted nav-item"></i>
                         </a>
 
-                        <a class="btn btn-outline-light float-right" href="${pageContext.request.contextPath}/">
+                        <a class="btn btn-light float-right" href="${pageContext.request.contextPath}/">
                             <i class="fa fa-1x fa-bookmark text-muted nav-item"></i>
                             <%--                            <i class="fa fa-1x fa-bookmark text-primary nav-item"></i>--%>
                         </a>
@@ -73,13 +92,13 @@
                     <div class="card-header bg-white pr-0">
                         <a href="/jamilxt"
                            class="font-weight-bold text-dark">
-                            <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
+                            <img src="/images/${singlePost.user.propic}"
                                  class="rounded-circle border border-light align-middle mr-3"
                                  width="30px" height="30px">
                         </a>
-                        <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
+                        <a href="/${singlePost.user.username}"
                            class="font-weight-bold text-dark">
-                            ${authUser.username}
+                            ${singlePost.user.username}
                         </a>
 
                         <!-- Post Options -->
@@ -127,40 +146,47 @@
                         <%-- Caption --%>
                         <div class="row card-body pb-0">
                             <div class="col-1 mr-3">
-                                <a href="/jamilxt"
+                                <a href="/${singlePost.user.username}"
                                    class="font-weight-bold text-dark">
-                                    <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
+                                    <img src="/images/${singlePost.user.propic}"
                                          class="rounded-circle border border-light align-middle"
                                          width="30px" height="30px">
                                 </a>
                             </div>
                             <div class="col">
-                                <a href="${pageContext.request.contextPath}/<sec:authentication property="principal.username" />"
+                                <a href="/${singlePost.user.username}"
                                    class="font-weight-bold text-dark">
-                                    ${authUser.username}
-                                </a> Caption
-                                <h6 class="small text-muted mt-2">1h</h6>
+                                    ${singlePost.user.username}
+                                </a> ${singlePost.caption}
+                                <h6 class="small text-muted mt-2">${postedAt}</h6>
                             </div>
                         </div>
 
                         <%-- Comments --%>
-                        <div class="row card-body pb-0">
-                            <div class="col-1 mr-3">
-                                <a href="/jamilxt"
-                                   class="font-weight-bold text-dark">
-                                    <img src="${pageContext.request.contextPath}/images/${authUser.propic}"
-                                         class="rounded-circle border border-light align-middle"
-                                         width="30px" height="30px">
-                                </a>
+                        <c:forEach items="${comments}" var="comment">
+
+                            <div class="row card-body pb-0">
+
+                                <div class="col-1 mr-3">
+                                    <a href="/${comment.username}"
+                                       class="font-weight-bold text-dark">
+                                        <img src="/images/${comment.propic}"
+                                             class="rounded-circle border border-light align-middle"
+                                             width="30px" height="30px">
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="/${comment.username}"
+                                       class="font-weight-bold text-dark">
+                                            ${comment.username}
+                                    </a> ${comment.commentText}
+                                    <h6 class="small text-muted mt-2">${comment.created_at}</h6>
+                                </div>
+
                             </div>
-                            <div class="col">
-                                <a href="/jamilxt"
-                                   class="font-weight-bold text-dark">
-                                    jamilxt
-                                </a> Comment 1
-                                <h6 class="small text-muted mt-2">1h</h6>
-                            </div>
-                        </div>
+
+                        </c:forEach>
+
 
                     </div>
 
