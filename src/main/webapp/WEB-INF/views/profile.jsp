@@ -51,7 +51,8 @@
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="list-group text-center" style="font-size: 16px">
-                                            <a href="/accounts/edit" class="list-group-item list-group-item-action">
+                                            <a href="/accounts/edit"
+                                               class="list-group-item list-group-item-action text-danger">
                                                 Change Password
                                             </a>
                                                 <%--                                        <a href="#" class="list-group-item list-group-item-action">--%>

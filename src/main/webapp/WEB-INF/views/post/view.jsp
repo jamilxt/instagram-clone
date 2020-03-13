@@ -68,30 +68,31 @@
 
                     <div class="card-footer bg-white">
 
-                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
+                        <a class="btn btn-outline-danger" href="${pageContext.request.contextPath}/">
                             <i class="fa fa-1x fa-share text-muted nav-item"></i>
                         </a>
 
-                        <a class="btn btn-light ml-3" href="${pageContext.request.contextPath}/">
+                        <a class="btn ml-3 btn-outline-danger" href="${pageContext.request.contextPath}/">
                             <i class="fa fa-1x fa-bookmark text-muted nav-item"></i>
                             <%--                            <i class="fa fa-1x fa-bookmark text-primary nav-item"></i>--%>
                         </a>
 
-                        <a class="btn btn-light disabled float-right ml-3" href="">
+                        <a class="btn btn-light disabled float-right ml-3 " href="">
                             <i class="fa fa-1x fa-comment text-muted nav-item"></i> <span
                                 id="totalCommentCounter">${totalComments}</span>
                         </a>
 
-                        <a class="btn btn-light float-right" href="${pageContext.request.contextPath}/">
-                            <%--                            <i class="fa fa-1x fa-heart text-muted nav-item"></i>--%>
-                            <i class="fa fa-1x fa-heart text-danger nav-item"></i> <span class="text-dark ml-1">1</span>
+                        <a class="btn btn-outline-danger float-right" href="${pageContext.request.contextPath}/">
+                            <i class="fa fa-1x fa-heart text-muted nav-item"></i>
+                            <%--                            <i class="fa fa-1x fa-heart text-danger nav-item"></i>--%>
+                            <span class="text-dark ml-1">0</span>
                         </a>
 
                     </div>
                 </div>
                 <div class="col-4 m-0 pl-0 border-left">
                     <div class="card-header bg-white pr-0">
-                        <a href="/jamilxt"
+                        <a href="/${singlePost.user.username}"
                            class="font-weight-bold text-dark">
                             <img src="/images/${singlePost.user.propic}"
                                  class="rounded-circle border border-light align-middle mr-3"
@@ -136,7 +137,7 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-outline float-right" data-toggle="modal"
+                        <button type="button" class="btn btn-outline-danger float-right" data-toggle="modal"
                                 data-target="#post_1_options">
                             <i class="fa fa-1x fa-ellipsis-h text-muted nav-item"></i>
                         </button>
@@ -220,10 +221,12 @@
         </div>
     </div>
 
-    <h6 class="text-secondary font-weight-bold mt-5">More posts from <a href="/jamilxt">jamilxt</a></h6>
+    <div class="card card-body border border-danger  mt-5">
+        <h6 class="text-secondary font-weight-bold">More posts from <a href="/jamilxt">jamilxt</a></h6>
 
-    <div class="row">
-        <div class="col-4"> gallery from profile page
+        <div class="row">
+            <div class="col-4"> gallery from profile page
+            </div>
         </div>
     </div>
 

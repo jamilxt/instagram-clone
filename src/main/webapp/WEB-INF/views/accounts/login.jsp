@@ -28,12 +28,13 @@
                     <input
                             type="text" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" placeholder="Username"
+                            value="Admin"
                             name="username">
                 </div>
                 <div class="form-group">
                     <input
                             type="password" class="form-control" id="exampleInputPassword1"
-                            placeholder="Password" name="password">
+                            placeholder="Password" name="password" value="secret">
                 </div>
                 <button type="submit"
                         class="btn btn-primary btn-sm btn-block">Log in
@@ -42,7 +43,7 @@
         </c:if>
     </div>
 
-    <div class="card card-body mt-3">
+    <div class="card card-body mt-3 border-danger">
         <div class="card-text text-center">
             Don't have an account? <a href="/accounts/emailsignup">Sign Up</a>
         </div>

@@ -47,7 +47,7 @@
 <%--                    <i class="fa fa-1x fa-plus text-muted nav-item"></i>--%>
 <%--                </button>--%>
 
-                <a href="/post/add" class="btn btn-outline-danger">Post Images</a>
+                <a href="/post/add" class="btn btn-outline-success">Post Images</a>
                     <%--                </a>--%>
             </li>
 
