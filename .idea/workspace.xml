@@ -8,15 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="09b0406b-a470-47ba-86d3-3f1224bf53ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RestPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/controllers/RestPostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/repositories/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/request/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/request/CommentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jamilxt/instagram_clone/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/post/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/post/view.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/post/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/post/view.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/instagram-clone-1/WEB-INF/views/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +205,7 @@
       <workItem from="1583994316238" duration="12819000" />
       <workItem from="1584014276639" duration="15684000" />
       <workItem from="1584036321042" duration="31462000" />
-      <workItem from="1584094964415" duration="18366000" />
+      <workItem from="1584094964415" duration="20082000" />
     </task>
     <servers />
   </component>

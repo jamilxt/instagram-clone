@@ -124,30 +124,31 @@
 
 
             <%--            <div class="card card-body">--%>
-            <div class="row" id="postSection">
+            <div class="row" id="load_posts">
 
                 <%-- POSTS --%>
-                <c:forEach items="${user.posts}" var="post">
-                    <div class="col-4 mb-4">
-                        <div class="imgHoverContainer w-100 h-100 ">
-                            <a href="/p/${post.postId}">
-                                <img src="/images/${post.images[0]}" class="w-100 h-100 imgHoverImage">
-                                <div class="imgHoverMiddle">
-                                        <%--                                        ${fn:length(post.comments)}--%>
-                                    <div class="imgHoverText">
-                                        <i class="fa fa-1x fa-heart nav-item"></i> 0
-                                        <i class="fa fa-1x fa-comment nav-item ml-4"></i> 0
-                                    </div>
-                                </div>
-                            </a>
-                            <c:if test="${fn:length(post.images) > 1}">
-                                <div class="multipleImage"><i class="fa fa-1x fa-clone nav-item text-white"></i></div>
-                            </c:if>
-                        </div>
-                    </div>
-                </c:forEach>
+                <%--                <c:forEach items="${user.posts}" var="post">--%>
+                <%--                    <div class="col-4 mb-4">--%>
+                <%--                        <div class="imgHoverContainer w-100 h-100 ">--%>
+                <%--                            <a href="/p/${post.postId}">--%>
+                <%--                                <img src="/images/${post.images[0]}" class="w-100 h-100 imgHoverImage">--%>
+                <%--                                <div class="imgHoverMiddle">--%>
+                <%--                                        &lt;%&ndash;                                        ${fn:length(post.comments)}&ndash;%&gt;--%>
+                <%--                                    <div class="imgHoverText">--%>
+                <%--                                        <i class="fa fa-1x fa-heart nav-item"></i> 0--%>
+                <%--                                        <i class="fa fa-1x fa-comment nav-item ml-4"></i> 0--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </a>--%>
+                <%--                            <c:if test="${fn:length(post.images) > 1}">--%>
+                <%--                                <div class="multipleImage"><i class="fa fa-1x fa-clone nav-item text-white"></i></div>--%>
+                <%--                            </c:if>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </c:forEach>--%>
 
             </div>
+            <div id="load_data_message"></div>
 
             <c:if test="${totalPosts == 0}">
                 <div class="text-center text-muted mt-5">
@@ -178,12 +179,81 @@
     </div>
 </div>
 
+<%--<div class="col-4 mb-4">--%>
+<%--    <div class="imgHoverContainer w-100 h-100 ">--%>
+<%--        <a href="/p/${post.postId}">--%>
+<%--            <img src="/images/${post.images[0]}" class="w-100 h-100 imgHoverImage">--%>
+<%--            <div class="imgHoverMiddle">--%>
+<%--                <div class="imgHoverText">--%>
+<%--                    <i class="fa fa-1x fa-heart nav-item"></i> 0--%>
+<%--                    <i class="fa fa-1x fa-comment nav-item ml-4"></i> 0--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </a>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 <script>
 
-    var page = 0;
-    
-    $.getJSON("/api/v1/posts?username=" + ${user.username} +"&page=" + page, function (data) {
-        console.log(data);
+    var pageCounter = 0;
+    var username = "${user.username}";
+    haveMore = false;
+
+    loadPosts(username, pageCounter);
+
+    function loadPosts(username, page) {
+        $.getJSON("/api/v1/posts?username=" + username + "&page=" + page, function (data) {
+            console.log(data);
+            var post_data = '';
+            $.each(data, function (key, value) {
+
+                var multipleImages = value.images.length > 1;
+
+                post_data += '<div class="col-4 mb-4"><div class="imgHoverContainer w-100 h-100 ">';
+                post_data += '<a href="/p/' + value.postId + '">';
+                post_data += '<img src="/images/' + value.images[0] + '" class="w-100 h-100 imgHoverImage">';
+                post_data += '<div class="imgHoverMiddle"><div class="imgHoverText">';
+                post_data += '<i class="fa fa-1x fa-heart nav-item"></i> 0 <i class="fa fa-1x fa-comment nav-item ml-4"></i> ' + value.commentCount + '';
+                post_data += '</div></div></a>';
+
+                if (multipleImages) {
+                    post_data += '<div class="multipleImage"><i class="fa fa-1x fa-clone nav-item text-white"></i></div>';
+                }
+
+                post_data += '</div></div>';
+
+            });
+
+            $('#load_posts').append(post_data);
+            if (data.length > 9) {
+                haveMore = true;
+            } else {
+                haveMore = false;
+            }
+        });
+
+        pageCounter = pageCounter + 1;
+    }
+
+    // $(window).on('scroll', function () {
+    //     let div = $(this).get(0);
+    //     if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+    //         if (haveMore) {
+    //             loadComments(postId, pageCounter);
+    //         } else {
+    //             $('#load_data_message').html('<div class="card-header small text-center">End of comments</div>');
+    //         }
+    //     }
+    // });
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            if (haveMore) {
+                loadPosts(username, pageCounter);
+            } else {
+                $('#load_data_message').html('<div class="muted small text-center">End of posts</div>');
+            }
+        }
     });
 
 </script>

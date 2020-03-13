@@ -42,10 +42,12 @@
 
             <li class="nav-item ml-3">
                     <%--                <a class="btn btn-outline-light" href="${pageContext.request.contextPath}/">--%>
-                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                        data-target="#imageUpload">
-                    <i class="fa fa-1x fa-plus text-muted nav-item"></i>
-                </button>
+<%--                <button type="button" class="btn btn-outline-danger" data-toggle="modal"--%>
+<%--                        data-target="#imageUpload">--%>
+<%--                    <i class="fa fa-1x fa-plus text-muted nav-item"></i>--%>
+<%--                </button>--%>
+
+                <a href="/post/add" class="btn btn-outline-danger">Post Images</a>
                     <%--                </a>--%>
             </li>
 

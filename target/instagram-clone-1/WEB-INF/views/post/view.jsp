@@ -231,8 +231,8 @@
 
 <script>
     pageCounter = 0;
-    postId = ${singlePost.postId}
-        haveMore = false;
+    postId = ${singlePost.postId};
+    haveMore = false;
     loadComments(postId, pageCounter);
 
     function loadComments(postId, page) {
