@@ -52,7 +52,13 @@ public class RootController {
     @GetMapping("/explore")
     public String explorePage(Model model) {
         model.addAttribute("pageTitle", "Explore");
-        return "explore";
+        return "/explore/index";
+    }
+
+    @GetMapping("/explore/tags/{tag}")
+    public String explorePageTags(Model model, @PathVariable(value = "tag") String tag) {
+        model.addAttribute("pageTitle", tag + " hashtag on instagram_clone • Photos and Videos");
+        return "/explore/tags";
     }
 
     @GetMapping("/accounts/login")

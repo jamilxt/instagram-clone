@@ -4,20 +4,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!-- GLOBAL HEADER -->
-<jsp:include page="common/header.jsp"/>
+<jsp:include page="../common/header.jsp"/>
 
-
-<!-- COURSE COVER IMAGE -->
 
 <!-- MAIN CONTENT OF THE PAGE -->
 <div class="container">
 
-    <h6 class="text-secondary font-weight-bold mt-5">Discover People</h6>
 
-    <h6 class="text-secondary font-weight-bold mt-5">Explore</h6>
 
 </div>
 
 
 <!-- GLOBAL FOOTER -->
-<jsp:include page="common/footer.jsp"/>
+<jsp:include page="../common/footer.jsp"/>

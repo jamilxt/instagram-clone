@@ -69,22 +69,22 @@
                     <div class="card-footer bg-white">
 
                         <a class="btn btn-light" href="${pageContext.request.contextPath}/">
-                            <%--                            <i class="fa fa-1x fa-heart text-muted nav-item"></i>--%>
-                            <i class="fa fa-1x fa-heart text-danger nav-item"></i> <span class="text-dark ml-1">1</span>
+                            <i class="fa fa-1x fa-share text-muted nav-item"></i>
                         </a>
 
-                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
+                        <a class="btn btn-light ml-3" href="${pageContext.request.contextPath}/">
+                            <i class="fa fa-1x fa-bookmark text-muted nav-item"></i>
+                            <%--                            <i class="fa fa-1x fa-bookmark text-primary nav-item"></i>--%>
+                        </a>
+
+                        <a class="btn btn-light disabled float-right ml-3" href="">
                             <i class="fa fa-1x fa-comment text-muted nav-item"></i> <span
                                 id="totalCommentCounter">${totalComments}</span>
                         </a>
 
-                        <a class="btn btn-light" href="${pageContext.request.contextPath}/">
-                            <i class="fa fa-1x fa-share text-muted nav-item"></i>
-                        </a>
-
                         <a class="btn btn-light float-right" href="${pageContext.request.contextPath}/">
-                            <i class="fa fa-1x fa-bookmark text-muted nav-item"></i>
-                            <%--                            <i class="fa fa-1x fa-bookmark text-primary nav-item"></i>--%>
+                            <%--                            <i class="fa fa-1x fa-heart text-muted nav-item"></i>--%>
+                            <i class="fa fa-1x fa-heart text-danger nav-item"></i> <span class="text-dark ml-1">1</span>
                         </a>
 
                     </div>
@@ -158,7 +158,7 @@
                                 <a href="/${singlePost.user.username}"
                                    class="font-weight-bold text-dark">
                                     ${singlePost.user.username}
-                                </a> ${singlePost.caption}
+                                </a> <span id="captionText">${singlePost.caption}</span>
                                 <h6 class="small text-muted mt-2">${postedAt}</h6>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                             </div>
                         </c:if>
 
-                        <div id="load_comments" class="pb-3" style="flex-direction: row-reverse;"></div>
+                        <div id="load_comments" class="pb-3"></div>
 
 
                     </div>
@@ -337,6 +337,17 @@
             }
         }
     });
+
+
+    var caption = $('#captionText');
+    var captionValue = caption.text();
+    console.log(captionValue);
+    var captionRegex = captionValue.replace(/#(\S*)/g, '<a href="/explore/tags/$1">#$1</a>');
+    captionRegex = captionRegex.replace(/@(\S*)/g, '<a href="/$1">@$1</a>');
+    caption.html(captionRegex);
+
+    console.log(captionRegex);
+
 
 </script>
 

@@ -64,7 +64,7 @@ input {
 .imgHoverContainer {
     position: relative;
     width: 50%;
-    background: black;
+    background: gray;
 }
 
 .imgHoverImage {
