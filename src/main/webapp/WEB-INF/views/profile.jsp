@@ -77,7 +77,7 @@
                 </h4>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>${totalPosts}</strong> posts</div>
+                <div class="pr-5"><strong>${totalPosts}</strong> post${totalPosts > 1 ? 's' : ''}</div>
                 <div class="pr-5 text-danger"><strong>0</strong> followers</div>
                 <div class="pr-5 text-danger"><strong>0</strong> following</div>
             </div>
@@ -113,7 +113,8 @@
                    aria-controls="nav-contact" aria-selected="false"><i class="fa fa-1x fa-bookmark nav-item"></i> SAVED</a>
             </c:if>
             <a class="nav-item nav-link text-danger" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
-               aria-controls="nav-about" aria-selected="false"><i class="fa fa-1x fa-address-book-o nav-item"></i>
+               aria-controls="nav-about" aria-selected="false" style="display: none"><i
+                    class="fa fa-1x fa-address-book-o nav-item"></i>
                 TAGGED</a>
         </div>
     </nav>
@@ -123,7 +124,9 @@
 
 
             <%--            <div class="card card-body">--%>
-            <div class="row">
+            <div class="row" id="postSection">
+
+                <%-- POSTS --%>
                 <c:forEach items="${user.posts}" var="post">
                     <div class="col-4 mb-4">
                         <div class="imgHoverContainer w-100 h-100 ">
@@ -143,6 +146,7 @@
                         </div>
                     </div>
                 </c:forEach>
+
             </div>
 
             <c:if test="${totalPosts == 0}">
@@ -173,6 +177,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- GLOBAL FOOTER -->

@@ -7,6 +7,132 @@
 <!-- GLOBAL HEADER -->
 <jsp:include page="common/header.jsp"/>
 
+
+<div id="load_data"></div>
+<div id="load_data_message"></div>
+
+<noscript>
+    $(document).ready(function () {
+
+    var limit = 1;
+    var start = 0;
+    var action = 'inactive';
+
+    function lazzy_loader(limit) {
+    var output = '';
+    for (var count = 0; count < limit; count++) {
+    output += '
+    <%--    <div class="post_data">';--%>
+    <%--        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';--%>
+    <%--        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';--%>
+    <%--        output += '--%>
+    <%--    </div>--%>
+    ';
+    }
+    $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start) {
+    $.ajax({
+    url: "/api/v1/post/comments",
+    method: "GET",
+    data: {limit: limit, start: start, postId: 5, page: start},
+    cache: false,
+    success: function (data) {
+    if (data === '') {
+    $('#load_data_message').html('<h3>No More Result Found</h3>');
+    action = 'active';
+    } else {
+    console.log(data);
+    $('#load_data').append(data);
+    $('#load_data_message').html("");
+    action = 'inactive';
+    }
+    }
+    })
+    }
+
+    if (action === 'inactive') {
+    action = 'active';
+    load_data(limit, start);
+    }
+
+    $(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() > $("#load_data").height() && action === 'inactive') {
+    lazzy_loader(limit);
+    action = 'active';
+    start = start + limit;
+    setTimeout(function () {
+    load_data(limit, start);
+    }, 1000);
+    }
+    });
+
+    });
+</noscript>
+
+<%--<div class="row card-body pb-0">--%>
+<%--    <div class="col-1 mr-3">--%>
+<%--        <a href="/${comment.username}" class="font-weight-bold text-dark">--%>
+<%--            <img src="/images/${comment.propic}" class="rounded-circle border border-light align-middle" width="30px"--%>
+<%--                 height="30px">--%>
+<%--        </a>--%>
+<%--    </div>--%>
+<%--    <div class="col">--%>
+<%--        <a href="/${comment.username}" class="font-weight-bold text-dark"> ${comment.username}</a>--%>
+<%--        ${comment.commentText}--%>
+<%--        <h6 class="small text-muted mt-2">${comment.created_at}</h6>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<script>
+    pageCounter = 0;
+    postId = 5;
+    haveMore = false;
+    loadComments(postId, pageCounter);
+
+    function loadComments(postId, page) {
+        $.getJSON("/api/v1/post/comments?postId=" + postId + "&page=" + page, function (data) {
+            var comment_data = '';
+            $.each(data, function (key, value) {
+                comment_data += '<div class="row card-body pb-0">';
+                comment_data += '<div class="col-1 mr-3">';
+                comment_data += '<a href="/' + value.username + '" class="font-weight-bold text-dark">';
+                comment_data += '<img src="/images/' + value.propic + '" class="rounded-circle border border-light align-middle" width="30px" height="30px">';
+                comment_data += '</a></div>';
+                comment_data += '<div class="col">';
+                comment_data += '<a href="/' + value.username + '" class="font-weight-bold text-dark">' + value.username + '</a>';
+                comment_data += value.commentText;
+                comment_data += '<h6 class="small text-muted mt-2">' + value.created_at + '</h6>';
+                comment_data += '</div></div>';
+            });
+
+            $('#load_comments').append(comment_data);
+            if (data.length > 9) {
+                haveMore = true;
+            } else {
+                haveMore = false;
+            }
+        });
+
+        pageCounter = pageCounter + 1;
+    }
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $('#load_data').height()) {
+            //Your code here
+            if (haveMore) {
+                loadComments(postId, pageCounter);
+            } else {
+                $('#load_data_message').html('<h3>End of comments</h3>');
+            }
+        }
+    });
+
+</script>
+
 <!-- MAIN CONTENT OF THE PAGE -->
 <div class="container  mt-4">
 

@@ -107,12 +107,12 @@ public class PostController {
     public String singlePost(Model model, @PathVariable(value = "postId") String postId) {
         model.addAttribute("postId", postId);
         Post post = postService.singlePost(Long.parseLong(postId)).get();
-        List<CommentRequest> comments = postService.getCommentByPostFirst(post);
+//        List<CommentRequest> comments = postService.getCommentByPostFirst(post);
         model.addAttribute("singlePost", post);
         PrettyTime p = new PrettyTime();
         String postedAt = p.format(new Date(Timestamp.valueOf(post.getCreated_at()).getTime()));
         model.addAttribute("postedAt", postedAt);
-        model.addAttribute("comments", comments);
+//        model.addAttribute("comments", comments);
         model.addAttribute("totalComments", postService.totalCommentsOfPost(post));
         return "post/view";
     }

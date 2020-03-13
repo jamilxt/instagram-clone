@@ -9,6 +9,7 @@ public class CommentRequest {
     private String username;
     private String propic;
     private String created_at;
+    private int totalComments;
 
     public Long getCommentId() {
         return commentId;
@@ -48,5 +49,13 @@ public class CommentRequest {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public int getTotalComments() {
+        return totalComments;
+    }
+
+    public void setTotalComments(int totalComments) {
+        this.totalComments = totalComments;
     }
 }

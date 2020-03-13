@@ -8,6 +8,7 @@ import com.jamilxt.instagram_clone.model.User;
 import com.jamilxt.instagram_clone.repositories.CommentRepository;
 import com.jamilxt.instagram_clone.repositories.PostRepository;
 import com.jamilxt.instagram_clone.request.CommentRequest;
+import com.jamilxt.instagram_clone.request.PostRequest;
 import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,23 @@ public class PostService {
                         Sort.Direction.DESC, sortBy.orElse("postId")));
     }
 
+    public List<PostRequest> getPostByUserRest(User user,
+                                               Optional<Integer> page,
+                                               Optional<String> sortBy) {
+        List<PostRequest> postRequests = new ArrayList<>();
+        for (Post post : postRepository.findByUser(user,
+                PageRequest.of(page.orElse(0), 10,
+                        Sort.Direction.DESC, sortBy.orElse("postId")))) {
+            PostRequest postRequest = new PostRequest();
+            postRequest.setImages(post.getImages());
+            postRequest.setPostId(post.getPostId());
+            postRequest.setCommentCount(totalCommentsOfPost(post));
+            postRequests.add(postRequest);
+        }
+
+        return postRequests;
+    }
+
 
     public void save(PostDto postDto, User user) {
 
@@ -73,10 +91,19 @@ public class PostService {
         return postRepository.findById(id);
     }
 
-    public void addComment(CommentDto commentDto) {
+    public CommentRequest addComment(CommentDto commentDto) {
         var commentEntity = new Comment();
         BeanUtils.copyProperties(commentDto, commentEntity);
-        commentRepository.save(commentEntity);
+        Comment comment = commentRepository.save(commentEntity);
+
+        CommentRequest commentRequest = new CommentRequest();
+        commentRequest.setCommentId(comment.getCommentId());
+        commentRequest.setCommentText(comment.getCommentText());
+        commentRequest.setCreated_at(new PrettyTime().format(new Date(Timestamp.valueOf(comment.getCreated_at()).getTime())));
+        commentRequest.setUsername(comment.getUser().getUsername());
+        commentRequest.setPropic(comment.getUser().getPropic());
+
+        return commentRequest;
     }
 
     public int totalCommentsOfPost(Post post) {
@@ -97,7 +124,10 @@ public class PostService {
             commentRequest.setUsername(comment.getUser().getUsername());
             commentRequest.setCommentText(comment.getCommentText());
             commentRequest.setPropic(comment.getUser().getPropic());
-            commentRequest.setCreated_at(comment.getPost().getCreated_at().toString());
+
+            PrettyTime p = new PrettyTime();
+            String created_at = p.format(new Date(Timestamp.valueOf(comment.getCreated_at()).getTime()));
+            commentRequest.setCreated_at(created_at);
             commentRequests.add(commentRequest);
         }
 
